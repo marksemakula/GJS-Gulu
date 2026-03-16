@@ -10,7 +10,7 @@ const brandColors = {
 
 const campuses = [
   { name: 'Gombe Junior School', subtitle: 'Boarding', path: '/institutions/gjs-boarding' },
-  { name: 'Gombe Junior School Kikajjo', subtitle: 'Day', path: '/institutions/gjs-kikajjo' },
+  { name: 'Gombe Junior School Gulu', subtitle: 'Day', path: '/institutions/gjs-gulu' },
 ];
 
 const GJSHeader = () => {

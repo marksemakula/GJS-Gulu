@@ -13,7 +13,7 @@ const Footer = () => {
   const institutions = [
     { name: 'St. Andrew Kaggwa Gombe High School - Kawaala', path: '/institutions/sakghs-kawaala' },
     { name: 'St. Andrew Kaggwa Gombe High School - Bujuuko', path: '/institutions/sakghs-bujuuko' },
-    { name: 'Gombe Junior School - Kikajjo', path: '/institutions/gjs-kikajjo' },
+    { name: 'Gombe Junior School - Gulu', path: '/institutions/gjs-gulu' },
     { name: 'Gombe Junior School - Boarding', path: '/institutions/gjs-boarding' },
     { name: 'Scooby Doo International School - Katale', path: '/institutions/scooby-katale' },
     { name: 'Scooby Doo International School - Gulu', path: '/institutions/scooby-gulu' },

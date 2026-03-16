@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import GJSKikajjo from './pages/GJSKikajjo';
+import GJSGulu from './pages/GJSGulu';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <GJSKikajjo />
+      <GJSGulu />
     </BrowserRouter>
   );
 }

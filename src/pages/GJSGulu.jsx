@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExternalLink, LuTarget, LuMenu, LuX, LuChevronDown } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
-const GJSKikajjo = () => {
+const GJSGulu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
 
@@ -12,7 +12,7 @@ const GJSKikajjo = () => {
     const link = document.querySelector("link[rel~='icon']") || document.createElement('link');
     link.type = 'image/png';
     link.rel = 'icon';
-    link.href = '/sisu-theme/assets/images/logo-light.png';
+    link.href = '/Gombe Junior School logo.png';
     document.getElementsByTagName('head')[0].appendChild(link);
 
     // Restore original favicon when component unmounts
@@ -51,7 +51,7 @@ const GJSKikajjo = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden" style={{ viewTransitionName: 'institution-gjs-kikajjo' }}>
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden" style={{ viewTransitionName: 'institution-gjs-gulu' }}>
       {/* Add CSS for floating animations */}
       <style>{`
         @keyframes float {
@@ -258,7 +258,7 @@ const GJSKikajjo = () => {
               transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
             >
               <h1 className="text-2xl font-bold" style={{ color: brandColors.secondary }}>
-                GJS <span style={{ color: brandColors.primary }}>Kikajjo</span>
+                GJS <span style={{ color: brandColors.primary }}>Gulu</span>
               </h1>
             </motion.div>
 
@@ -408,8 +408,8 @@ const GJSKikajjo = () => {
       <section className="relative overflow-hidden text-white py-32" style={{ backgroundColor: brandColors.secondary }}>
         <div className="absolute inset-0">
           <img 
-            src="/images/happy pupil.jpg" 
-            alt="Gombe Junior School - Kikajjo" 
+            src="/happy pupil.jpg" 
+            alt="Gombe Junior School - Gulu" 
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -423,13 +423,13 @@ const GJSKikajjo = () => {
             >
               <div className="inline-flex items-center rounded-full px-6 py-2 mb-6" style={{ backgroundColor: `${brandColors.primary}40` }}>
                 <LuExternalLink className="w-4 h-4 mr-2" style={{ color: brandColors.primary }} />
-                <span className="text-sm font-medium">gjs-kikajjo.ges.ac.ug</span>
+                <span className="text-sm font-medium">gjs-gulu.ges.ac.ug</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Gombe Junior School (GJS)
               </h1>
               <p className="text-xl mb-4" style={{ color: brandColors.primary }}>
-                Kikajjo Campus
+                Gulu Campus
               </p>
             </motion.div>
             
@@ -441,7 +441,7 @@ const GJSKikajjo = () => {
               className="flex justify-center md:justify-end"
             >
               <img 
-                src="/images/Gombe Junior School logo.png" 
+                src="/Gombe Junior School logo.png" 
                 alt="Gombe Junior School" 
                 className="w-96 h-96 object-contain"
               />
@@ -598,12 +598,12 @@ const GJSKikajjo = () => {
               Join Our Global Community
             </h2>
             <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
-              Experience world-class international education at GJS - Kikajjo Campus
+              Experience world-class international education at GJS - Gulu Campus
             </p>
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className="flex items-center space-x-2">
                 <LuMapPin className="w-5 h-5" style={{ color: brandColors.primary }} />
-                <span>Katale, Kampala</span>
+                <span>Gulu</span>
               </div>
               <div className="flex items-center space-x-2">
                 <LuPhone className="w-5 h-5" style={{ color: brandColors.primary }} />
@@ -634,12 +634,12 @@ const GJSKikajjo = () => {
             <div>
               <div className="flex items-center mb-4">
                 <img 
-                  src="/images/Gombe Junior School logo.png" 
+                  src="/Gombe Junior School logo.png" 
                   alt="Gombe Junior School" 
                   className="h-40 w-auto mr-3 grayscale"
                 />
                 <h3 className="text-2xl font-bold" style={{ color: brandColors.primary }}>
-                  GJS - Kikajjo Campus
+                  GJS - Gulu Campus
                 </h3>
               </div>
               <p className="text-gray-200 mb-4">
@@ -665,7 +665,7 @@ const GJSKikajjo = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <LuMapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">Kikajjo Campus, Kampala</span>
+                  <span className="text-gray-200">Gulu Campus</span>
                 </div>
               </div>
             </div>
@@ -699,7 +699,7 @@ const GJSKikajjo = () => {
               <div className="flex items-center space-x-2">
                 <span className="text-gray-300 text-sm">Powered by</span>
                 <img 
-                  src="/images/Inzozi-grayscale.png" 
+                  src="/Inzozi-grayscale.png" 
                   alt="Inzozi Logo" 
                   className="h-16 w-auto brightness-0 invert" 
                 />
@@ -712,4 +712,4 @@ const GJSKikajjo = () => {
   );
 };
 
-export default GJSKikajjo;
+export default GJSGulu;

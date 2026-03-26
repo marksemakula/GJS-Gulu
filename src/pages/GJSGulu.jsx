@@ -460,12 +460,52 @@ const GJSGulu = () => {
         </div>
       </section>
 
-      {/* Wavy Divider */}
-      <div className="w-full" style={{ marginTop: '-1px', lineHeight: 0 }}>
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full" style={{ height: '100px', display: 'block' }}>
-          <path d="M0,0 C300,90 600,90 900,0 C1050,50 1150,50 1200,0 L1200,120 L0,120 Z" fill="#FFF9F5"></path>
-        </svg>
-      </div>
+      {/* Logo Carousel */}
+      <section className="py-10 overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
+        <div className="relative">
+          <style>{`
+            @keyframes marquee {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .logo-marquee {
+              display: flex;
+              width: max-content;
+              animation: marquee 28s linear infinite;
+            }
+            .logo-marquee:hover { animation-play-state: paused; }
+          `}</style>
+          <div className="logo-marquee items-center gap-16 px-8">
+            {[
+              { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
+              { src: '/GES.png', alt: 'Gombe Education Services' },
+              { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
+              { src: '/Gombe High logo.png', alt: 'Gombe High School' },
+              { src: '/IPP.png', alt: 'IPP' },
+              { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
+              { src: '/scooby-logo.png', alt: 'Scooby' },
+              { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
+              { src: '/GES.png', alt: 'Gombe Education Services' },
+              { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
+              { src: '/Gombe High logo.png', alt: 'Gombe High School' },
+              { src: '/IPP.png', alt: 'IPP' },
+              { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
+              { src: '/scooby-logo.png', alt: 'Scooby' },
+            ].map((logo, i) => (
+              <div key={i} className="flex-shrink-0 flex items-center justify-center h-16 w-32">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                />
+              </div>
+            ))}
+          </div>
+          {/* Fade edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#FFF9F5] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#FFF9F5] to-transparent" />
+        </div>
+      </section>
 
       {/* Stats Section */}
       <section className="py-20" style={{ backgroundColor: '#FFF9F5' }}>

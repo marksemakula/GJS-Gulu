@@ -418,7 +418,7 @@ const GJSGulu = () => {
       <section className="relative overflow-hidden text-white py-32" style={{ backgroundColor: brandColors.secondary }}>
         <div className="absolute inset-0">
           <img 
-            src="/happy pupil.jpg" 
+            src="/gjsIMG_1697.JPG" 
             alt="Gombe Junior School - Gulu" 
             className="w-full h-full object-cover opacity-20"
           />

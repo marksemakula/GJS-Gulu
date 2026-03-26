@@ -1,7 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Marquee from 'react-fast-marquee';
 import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExternalLink, LuTarget, LuMenu, LuX, LuChevronDown } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+
+const CAROUSEL_LOGOS = [
+  { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
+  { src: '/GES.png', alt: 'Gombe Education Services' },
+  { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
+  { src: '/Gombe High logo.png', alt: 'Gombe High School' },
+  { src: '/IPP.png', alt: 'IPP' },
+  { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
+  { src: '/scooby-logo.png', alt: 'Scooby' },
+];
+
+const LogoCarousel = () => {
+  // Repeat logos 4× so content always exceeds the widest viewport before the clone kicks in
+  const logos = [...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS];
+  return (
+    <section className="py-10 overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
+      <Marquee speed={60} gradient={true} gradientColor="#FFF9F5" gradientWidth={80} pauseOnHover={false}>
+        {logos.map((logo, i) => (
+          <div key={i} style={{ width: 128, height: 64, marginRight: 64, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img
+              src={logo.src}
+              alt={i < CAROUSEL_LOGOS.length ? logo.alt : ''}
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, transition: 'filter 0.3s, opacity 0.3s' }}
+              onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0%)'; e.currentTarget.style.opacity = '1'; }}
+              onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(100%)'; e.currentTarget.style.opacity = '0.65'; }}
+            />
+          </div>
+        ))}
+      </Marquee>
+    </section>
+  );
+};
 
 const GJSGulu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -461,51 +494,7 @@ const GJSGulu = () => {
       </section>
 
       {/* Logo Carousel */}
-      <section className="py-10 overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
-        <div className="relative">
-          <style>{`
-            @keyframes marquee {
-              0%   { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .logo-marquee {
-              display: flex;
-              width: max-content;
-              animation: marquee 28s linear infinite;
-            }
-            .logo-marquee:hover { animation-play-state: paused; }
-          `}</style>
-          <div className="logo-marquee items-center gap-16 px-8">
-            {[
-              { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
-              { src: '/GES.png', alt: 'Gombe Education Services' },
-              { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
-              { src: '/Gombe High logo.png', alt: 'Gombe High School' },
-              { src: '/IPP.png', alt: 'IPP' },
-              { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
-              { src: '/scooby-logo.png', alt: 'Scooby' },
-              { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
-              { src: '/GES.png', alt: 'Gombe Education Services' },
-              { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
-              { src: '/Gombe High logo.png', alt: 'Gombe High School' },
-              { src: '/IPP.png', alt: 'IPP' },
-              { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
-              { src: '/scooby-logo.png', alt: 'Scooby' },
-            ].map((logo, i) => (
-              <div key={i} className="flex-shrink-0 flex items-center justify-center h-16 w-32">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-                />
-              </div>
-            ))}
-          </div>
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#FFF9F5] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#FFF9F5] to-transparent" />
-        </div>
-      </section>
+      <LogoCarousel />
 
       {/* Stats Section */}
       <section className="py-20" style={{ backgroundColor: '#FFF9F5' }}>

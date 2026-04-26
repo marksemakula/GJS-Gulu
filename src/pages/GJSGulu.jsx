@@ -36,8 +36,38 @@ const LogoCarousel = () => {
   );
 };
 
+const GJS_PICS = [
+  '/GJS Pics/GOMBE HIGH SCHOOL.jpg',
+  '/GJS Pics/GOMBE JUNIOR SCHOOL BOARDING.JPG',
+  '/GJS Pics/GOMBE JUNIOR SCHOOL DAY.jpg',
+  '/GJS Pics/IMG_0069.JPG',
+  '/GJS Pics/IMG_1378.JPG',
+  '/GJS Pics/IMG_1678.JPG',
+  '/GJS Pics/IMG_1685.JPG',
+  '/GJS Pics/IMG_1690.JPG',
+  '/GJS Pics/IMG_1697.JPG',
+  '/GJS Pics/IMG_1707.JPG',
+  '/GJS Pics/IMG_1708.JPG',
+  '/GJS Pics/IMG_1737.JPG',
+  '/GJS Pics/IMG_1747.JPG',
+  '/GJS Pics/IMG_1764.JPG',
+  '/GJS Pics/IMG_1768.JPG',
+  '/GJS Pics/IMG_2804.JPG',
+  '/GJS Pics/IMG_5387.JPG',
+  '/GJS Pics/IMG_7534.JPG',
+  '/GJS Pics/IMG_7541.JPG',
+  '/GJS Pics/IMG_7542.JPG',
+  '/GJS Pics/IMG_7544.JPG',
+  '/GJS Pics/IMG_8873.JPG',
+  '/GJS Pics/IMG_8893.JPG',
+  '/GJS Pics/IMG_8912.JPG',
+];
+
 const GJSGulu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [heroPrevIndex, setHeroPrevIndex] = useState(null);
+  const [heroFading, setHeroFading] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
 
@@ -82,6 +112,18 @@ const GJSGulu = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    const heroTimer = setInterval(() => {
+      setHeroPrevIndex(prev => prev);
+      setHeroFading(true);
+      setTimeout(() => {
+        setHeroIndex(i => (i + 1) % GJS_PICS.length);
+        setHeroFading(false);
+      }, 700);
+    }, 4000);
+    return () => clearInterval(heroTimer);
+  }, []);
 
   useEffect(() => {
     // Change favicon when component mounts
@@ -450,10 +492,17 @@ const GJSGulu = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden text-white py-32" style={{ backgroundColor: brandColors.secondary }}>
         <div className="absolute inset-0">
-          <img 
-            src="/gjsIMG_1697.JPG" 
-            alt="Gombe Junior School - Gulu" 
-            className="w-full h-full object-cover opacity-20"
+          <img
+            key={heroIndex}
+            src={GJS_PICS[heroIndex]}
+            alt="Gombe Junior School - Gulu"
+            className="w-full h-full object-cover"
+            style={{
+              opacity: heroFading ? 0 : 0.2,
+              transition: 'opacity 0.7s ease-in-out',
+              position: 'absolute',
+              inset: 0,
+            }}
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

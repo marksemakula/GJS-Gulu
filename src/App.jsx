@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GJSGulu from './pages/GJSGulu';
+import GalleryPage from './pages/GalleryPage';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <GJSGulu />
+      <Routes>
+        <Route path="/" element={<GJSGulu />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

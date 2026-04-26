@@ -107,7 +107,7 @@ const GJSGulu = () => {
       label: "Student's Life",
       dropdown: [
         { label: 'Articles', href: '#articles' },
-        { label: 'Images', href: '#images' },
+        { label: 'Images', href: '/gallery' },
         { label: 'Student Clubs and Societies', href: '#clubs' },
       ],
     },

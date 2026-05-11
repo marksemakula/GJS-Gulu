@@ -1,75 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
+import { motion } from 'framer-motion';
 import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExternalLink, LuTarget, LuMenu, LuX, LuChevronDown } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
-const CAROUSEL_LOGOS = [
-  { src: '/MoES1.png', alt: 'Ministry of Education and Sports' },
-  { src: '/GES.png', alt: 'Gombe Education Services' },
-  { src: '/Flag_of_Buganda.svg', alt: 'Kingdom of Buganda' },
-  { src: '/Gombe High logo.png', alt: 'Gombe High School' },
-  { src: '/IPP.png', alt: 'IPP' },
-  { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
-  { src: '/scooby-logo.png', alt: 'Scooby' },
-];
-
-const LogoCarousel = () => {
-  // Repeat logos 4× so content always exceeds the widest viewport before the clone kicks in
-  const logos = [...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS, ...CAROUSEL_LOGOS];
-  return (
-    <section className="py-10 overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
-      <Marquee speed={60} gradient={true} gradientColor="#FFF9F5" gradientWidth={80} pauseOnHover={false}>
-        {logos.map((logo, i) => (
-          <div key={i} style={{ width: 128, height: 64, marginRight: 64, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img
-              src={logo.src}
-              alt={i < CAROUSEL_LOGOS.length ? logo.alt : ''}
-              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, transition: 'filter 0.3s, opacity 0.3s' }}
-              onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0%)'; e.currentTarget.style.opacity = '1'; }}
-              onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(100%)'; e.currentTarget.style.opacity = '0.65'; }}
-            />
-          </div>
-        ))}
-      </Marquee>
-    </section>
-  );
-};
-
-const GJS_PICS = [
-  '/GJS Pics/GOMBE HIGH SCHOOL.jpg',
-  '/GJS Pics/GOMBE JUNIOR SCHOOL BOARDING.JPG',
-  '/GJS Pics/GOMBE JUNIOR SCHOOL DAY.jpg',
-  '/GJS Pics/IMG_0069.JPG',
-  '/GJS Pics/IMG_1378.JPG',
-  '/GJS Pics/IMG_1678.JPG',
-  '/GJS Pics/IMG_1685.JPG',
-  '/GJS Pics/IMG_1690.JPG',
-  '/GJS Pics/IMG_1697.JPG',
-  '/GJS Pics/IMG_1707.JPG',
-  '/GJS Pics/IMG_1708.JPG',
-  '/GJS Pics/IMG_1737.JPG',
-  '/GJS Pics/IMG_1747.JPG',
-  '/GJS Pics/IMG_1764.JPG',
-  '/GJS Pics/IMG_1768.JPG',
-  '/GJS Pics/IMG_2804.JPG',
-  '/GJS Pics/IMG_5387.JPG',
-  '/GJS Pics/IMG_7534.JPG',
-  '/GJS Pics/IMG_7541.JPG',
-  '/GJS Pics/IMG_7542.JPG',
-  '/GJS Pics/IMG_7544.JPG',
-  '/GJS Pics/IMG_8873.JPG',
-  '/GJS Pics/IMG_8893.JPG',
-  '/GJS Pics/IMG_8912.JPG',
+const gjsPics = [
+  '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',
+  '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG',
+  '/GJS%20Pics/IMG_0069.JPG',
+  '/GJS%20Pics/IMG_1378.JPG',
+  '/GJS%20Pics/IMG_1678.JPG',
+  '/GJS%20Pics/IMG_1685.JPG',
+  '/GJS%20Pics/IMG_1690.JPG',
+  '/GJS%20Pics/IMG_1697.JPG',
+  '/GJS%20Pics/IMG_1707.JPG',
+  '/GJS%20Pics/IMG_1708.JPG',
+  '/GJS%20Pics/IMG_1737.JPG',
+  '/GJS%20Pics/IMG_1747.JPG',
+  '/GJS%20Pics/IMG_1764.JPG',
+  '/GJS%20Pics/IMG_1768.JPG',
+  '/GJS%20Pics/IMG_2804.JPG',
+  '/GJS%20Pics/IMG_5387.JPG',
+  '/GJS%20Pics/IMG_7534.JPG',
+  '/GJS%20Pics/IMG_7541.JPG',
+  '/GJS%20Pics/IMG_7542.JPG',
+  '/GJS%20Pics/IMG_7544.JPG',
+  '/GJS%20Pics/IMG_8873.JPG',
+  '/GJS%20Pics/IMG_8893.JPG',
+  '/GJS%20Pics/IMG_8912.JPG',
 ];
 
 const GJSGulu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [heroIndex, setHeroIndex] = useState(0);
-  const [heroPrevIndex, setHeroPrevIndex] = useState(null);
-  const [heroFading, setHeroFading] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * gjsPics.length));
+  const [heroVisible, setHeroVisible] = useState(true);
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -77,11 +44,11 @@ const GJSGulu = () => {
       label: 'About Us',
       dropdown: [
         { label: 'School Profile', href: '#school-profile' },
-        { label: 'Mission & Vision', href: '#mission-vision' },
+        { label: 'Mission & Vision', href: '#mission' },
         { label: 'Core Values', href: '#core-values' },
-        { label: 'Board of Governors', href: '#board-of-governors' },
+        { label: 'Board of Governors', href: '#board' },
         { label: "Principal's Message", href: '#principals-message' },
-        { label: 'Administration and Management Team', href: '#administration' },
+        { label: 'Administration and Management Team', href: '#management' },
       ],
     },
     {
@@ -96,33 +63,36 @@ const GJSGulu = () => {
     {
       label: 'Admissions',
       dropdown: [
-        { label: 'Apply Now', href: '#apply-now' },
-        { label: 'Resources - Fees', href: '#resources-fees' },
+        { label: 'Apply Now', href: '#apply' },
+        { label: 'Resources - Fees', href: '#fees' },
         { label: 'FAQs', href: '#faqs' },
         { label: 'Documents', href: '#documents' },
-        { label: 'Overview', href: '#overview' },
+        { label: 'Overview', href: '#admissions-overview' },
       ],
     },
     {
       label: "Student's Life",
       dropdown: [
         { label: 'Articles', href: '#articles' },
-        { label: 'Images', href: '/gallery' },
+        { label: 'Images', href: '#gallery', route: '/gallery' },
         { label: 'Student Clubs and Societies', href: '#clubs' },
       ],
     },
   ];
 
   useEffect(() => {
-    const heroTimer = setInterval(() => {
-      setHeroPrevIndex(prev => prev);
-      setHeroFading(true);
+    const interval = setInterval(() => {
+      setHeroVisible(false);
       setTimeout(() => {
-        setHeroIndex(i => (i + 1) % GJS_PICS.length);
-        setHeroFading(false);
-      }, 700);
+        setHeroImageIndex(prev => {
+          let next;
+          do { next = Math.floor(Math.random() * gjsPics.length); } while (next === prev);
+          return next;
+        });
+        setHeroVisible(true);
+      }, 500);
     }, 4000);
-    return () => clearInterval(heroTimer);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -130,7 +100,7 @@ const GJSGulu = () => {
     const link = document.querySelector("link[rel~='icon']") || document.createElement('link');
     link.type = 'image/png';
     link.rel = 'icon';
-    link.href = '/Gombe Junior School logo.png';
+    link.href = '/sisu-theme/assets/images/logo-light.png';
     document.getElementsByTagName('head')[0].appendChild(link);
 
     // Restore original favicon when component unmounts
@@ -143,12 +113,6 @@ const GJSGulu = () => {
     secondary: '#800E13', // Burgundy
   };
 
-  const stats = [
-    { icon: LuUsers, label: 'Students', value: '400+' },
-    { icon: LuAward, label: 'Pass Rate', value: '99%' },
-    { icon: LuBookOpen, label: 'Curricula', value: '2' },
-    { icon: LuGlobe, label: 'Countries', value: '12+' },
-  ];
 
   const programs = [
     {
@@ -166,6 +130,17 @@ const GJSGulu = () => {
       description: 'Uganda National Curriculum integrated with international standards for P1-P7',
       features: ['Primary (P1-P7)', 'Life Skills', 'Competency-Based'],
     }
+  ];
+
+  // Each logo slot: width 120px + mx-10 (40px each side) = 200px. 7 logos × 200 = 1400px per copy.
+  const carouselLogos = [
+    { src: '/MoES1.png', alt: 'MoES' },
+    { src: '/GES.png', alt: 'GES' },
+    { src: '/Flag_of_Buganda.svg', alt: 'Flag of Buganda' },
+    { src: '/Gombe High logo.png', alt: 'Gombe High' },
+    { src: '/IPP.png', alt: 'IPP' },
+    { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
+    { src: '/scooby-logo.png', alt: 'Scooby' },
   ];
 
   return (
@@ -387,45 +362,56 @@ const GJSGulu = () => {
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => setOpenDropdown(item.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <motion.button
+                    <button
                       className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-[#800E13] font-medium transition-colors"
-                      whileHover={{ y: -1 }}
                     >
                       {item.label}
-                      <LuChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
-                    </motion.button>
-                    {openDropdown === item.label && (
-                      <motion.div
-                        className="absolute top-full left-0 mt-1 min-w-[220px] bg-white rounded-xl shadow-2xl py-2 border-2 border-[#FFD700] z-[100]"
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.15 }}
-                      >
-                        {item.dropdown.map((sub) => (
-                          <a
-                            key={sub.href}
-                            href={sub.href}
-                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] transition-colors rounded-lg mx-2"
-                            onClick={() => setOpenDropdown(null)}
-                          >
-                            {sub.label}
-                          </a>
-                        ))}
-                      </motion.div>
+                      <LuChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    {activeDropdown === item.label && (
+                      /* pt-2 creates a seamless hover bridge between button and panel */
+                      <div className="absolute top-full left-0 pt-2 min-w-[220px] z-[100]">
+                        <motion.div
+                          className="bg-white rounded-xl shadow-2xl py-3 border-2 border-[#FFD700]"
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.15 }}
+                        >
+                          {item.dropdown.map((sub) =>
+                            sub.route ? (
+                              <Link
+                                key={sub.route}
+                                to={sub.route}
+                                className="block px-4 py-2.5 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] transition-colors rounded-lg mx-2 text-sm"
+                              >
+                                {sub.label}
+                              </Link>
+                            ) : (
+                              <a
+                                key={sub.href}
+                                href={sub.href}
+                                className="block px-4 py-2.5 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] transition-colors rounded-lg mx-2 text-sm"
+                              >
+                                {sub.label}
+                              </a>
+                            )
+                          )}
+                        </motion.div>
+                      </div>
                     )}
                   </div>
                 ) : (
                   <motion.a
-                    key={item.href}
+                    key={item.label}
                     href={item.href}
                     className="relative px-3 py-2 text-gray-700 hover:text-[#800E13] font-medium transition-all duration-300 group"
-                    whileHover={{ y: -1 }}
+                    whileHover={{ y: -2 }}
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-3 w-0 h-0.5 bg-[#FFD700] group-hover:w-[calc(100%-1.5rem)] transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-3 w-0 h-0.5 bg-[#FFD700] group-hover:w-[calc(100%-24px)] transition-all duration-300"></span>
                   </motion.a>
                 )
               )}
@@ -452,33 +438,44 @@ const GJSGulu = () => {
                 item.dropdown ? (
                   <div key={item.label} className="py-1">
                     <button
-                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.label ? null : item.label)}
+                      onClick={() => setMobileDropdown(mobileDropdown === item.label ? null : item.label)}
                       className="flex items-center justify-between w-full py-3 px-4 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] font-medium rounded-lg transition-colors"
                     >
                       {item.label}
-                      <LuChevronDown className={`w-4 h-4 transition-transform ${mobileOpenDropdown === item.label ? 'rotate-180' : ''}`} />
+                      <LuChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
-                    {mobileOpenDropdown === item.label && (
-                      <div className="mt-1 ml-4 space-y-1">
-                        {item.dropdown.map((sub) => (
-                          <a
-                            key={sub.href}
-                            href={sub.href}
-                            className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-[#FFF9E6]"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {sub.label}
-                          </a>
-                        ))}
+                    {mobileDropdown === item.label && (
+                      <div className="ml-4 space-y-1">
+                        {item.dropdown.map((sub) =>
+                          sub.route ? (
+                            <Link
+                              key={sub.route}
+                              to={sub.route}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-[#FFF9E6] transition-colors"
+                            >
+                              {sub.label}
+                            </Link>
+                          ) : (
+                            <a
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-[#FFF9E6] transition-colors"
+                            >
+                              {sub.label}
+                            </a>
+                          )
+                        )}
                       </div>
                     )}
                   </div>
                 ) : (
                   <a
-                    key={item.href}
+                    key={item.label}
                     href={item.href}
-                    className="block py-3 px-4 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] font-medium rounded-lg transition-colors"
                     onClick={() => setIsMenuOpen(false)}
+                    className="block py-3 px-4 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] font-medium rounded-lg transition-colors"
                   >
                     {item.label}
                   </a>
@@ -493,16 +490,10 @@ const GJSGulu = () => {
       <section className="relative overflow-hidden text-white py-32" style={{ backgroundColor: brandColors.secondary }}>
         <div className="absolute inset-0">
           <img
-            key={heroIndex}
-            src={GJS_PICS[heroIndex]}
+            src={gjsPics[heroImageIndex]}
             alt="Gombe Junior School - Gulu"
-            className="w-full h-full object-cover"
-            style={{
-              opacity: heroFading ? 0 : 0.2,
-              transition: 'opacity 0.7s ease-in-out',
-              position: 'absolute',
-              inset: 0,
-            }}
+            className="w-full h-full object-cover transition-opacity duration-500"
+            style={{ opacity: heroVisible ? 0.2 : 0 }}
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -543,10 +534,36 @@ const GJSGulu = () => {
       </section>
 
       {/* Logo Carousel */}
-      <LogoCarousel />
+      <div className="py-8" style={{ backgroundColor: '#FFF9F5' }}>
+        <Marquee
+          gradient
+          gradientColor="#FFF9F5"
+          gradientWidth={96}
+          speed={60}
+          pauseOnHover
+        >
+          {/* 4× repetition ensures content always fills the viewport before the library clones it */}
+          {[0, 1, 2, 3].flatMap((setIdx) =>
+            carouselLogos.map((logo, i) => (
+              <div
+                key={`${setIdx}-${i}`}
+                style={{ width: '120px', height: '80px', margin: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={120}
+                  height={80}
+                  className="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                />
+              </div>
+            ))
+          )}
+        </Marquee>
+      </div>
 
-      {/* Stats Section */}
-      <section className="py-20" style={{ backgroundColor: '#FFF9F5' }}>
+      {/* Campus Media Section */}
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
         {/* Decorative Elements */}
         <div className="absolute top-10 left-10 opacity-10 z-0">
           <svg width="80" height="80" viewBox="0 0 100 100">
@@ -562,23 +579,49 @@ const GJSGulu = () => {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style={{ backgroundColor: '#fff', boxShadow: '0 10px 30px rgba(128,14,19,0.1)' }}>
-                  <stat.icon className="w-10 h-10" style={{ color: brandColors.primary }} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl group"
+              style={{ border: `4px solid ${brandColors.primary}` }}
+            >
+              <Link to="/gallery" className="block w-full h-full">
+                <img 
+                  src="/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG" 
+                  alt="Gombe Junior School Boarding" 
+                  className="w-full h-full object-cover aspect-video transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <h3 className="text-white font-bold text-xl">Campus Life</h3>
                 </div>
-                <div className="text-4xl font-bold mb-2" style={{ color: brandColors.secondary }}>{stat.value}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
+              </Link>
+            </motion.div>
+
+            {/* Video Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl"
+              style={{ border: `4px solid ${brandColors.secondary}` }}
+            >
+              <video 
+                src="/GJS%20KAMPALA%20VIRTUAL%20TOUR.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-full object-cover aspect-video"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                <h3 className="text-white font-bold text-xl">Virtual Tour</h3>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -691,7 +734,7 @@ const GJSGulu = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className="flex items-center space-x-2">
                 <LuMapPin className="w-5 h-5" style={{ color: brandColors.primary }} />
-                <span>Gulu</span>
+                <span>Gulu, Kampala</span>
               </div>
               <div className="flex items-center space-x-2">
                 <LuPhone className="w-5 h-5" style={{ color: brandColors.primary }} />
@@ -753,8 +796,27 @@ const GJSGulu = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <LuMapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">Gulu Campus</span>
+                  <span className="text-gray-200">Gulu Campus, Kampala</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4" style={{ color: brandColors.primary }}>Follow Us</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
+                  <FaFacebookF className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
+                  <FaTwitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
+                  <FaLinkedinIn className="w-5 h-5" />
+                </a>
               </div>
             </div>
 
@@ -779,25 +841,6 @@ const GJSGulu = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: brandColors.primary }}>Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaFacebookF className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaTwitter className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaInstagram className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaLinkedinIn className="w-5 h-5" />
-                </a>
-              </div>
             </div>
           </div>
 

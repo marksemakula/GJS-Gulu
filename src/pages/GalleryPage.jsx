@@ -12,30 +12,30 @@ import {
 } from 'react-icons/lu';
 
 const galleryImages = [
-  { src: '/GJS Pics/GOMBE HIGH SCHOOL.jpg',              caption: 'Gombe High School'        },
-  { src: '/GJS Pics/GOMBE JUNIOR SCHOOL BOARDING.JPG',   caption: 'GJS Boarding Campus'      },
-  { src: '/GJS Pics/GOMBE JUNIOR SCHOOL DAY.jpg',        caption: 'GJS Day Life'             },
-  { src: '/GJS Pics/IMG_0069.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1378.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1678.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1685.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1690.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1697.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1707.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1708.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1737.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1747.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1764.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_1768.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_2804.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_5387.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_7534.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_7541.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_7542.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_7544.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_8873.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_8893.JPG',  caption: 'School Moments' },
-  { src: '/GJS Pics/IMG_8912.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',          caption: 'Gombe High School'         },
+  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG', caption: 'GJS Boarding Campus'    },
+  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20DAY.jpg',  caption: 'GJS Day Life'              },
+  { src: '/GJS%20Pics/IMG_0069.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1378.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1678.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1685.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1690.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1697.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1707.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1708.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1737.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1747.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1764.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_1768.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_2804.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_5387.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_7534.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_7541.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_7542.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_7544.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_8873.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_8893.JPG',  caption: 'School Moments' },
+  { src: '/GJS%20Pics/IMG_8912.JPG',  caption: 'School Moments' },
 ];
 
 const BURGUNDY = '#800E13';
@@ -54,7 +54,7 @@ const itemVariants = {
 
 export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const [imgDirection, setImgDirection]   = useState(0);
+  const [imgDirection, setImgDirection]   = useState(0); // -1 left, 1 right
 
   const isOpen = lightboxIndex !== null;
 
@@ -75,31 +75,23 @@ export default function GalleryPage() {
     setLightboxIndex(i => (i + 1) % galleryImages.length);
   }, []);
 
+  /* Keyboard navigation */
   useEffect(() => {
     if (!isOpen) return;
     const handle = (e) => {
-      if (e.key === 'Escape')     closeLightbox();
-      if (e.key === 'ArrowLeft')  prev();
-      if (e.key === 'ArrowRight') next();
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   prev();
+      if (e.key === 'ArrowRight')  next();
     };
     window.addEventListener('keydown', handle);
     return () => window.removeEventListener('keydown', handle);
   }, [isOpen, closeLightbox, prev, next]);
 
+  /* Lock body scroll when lightbox is open */
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
-
-  /* Favicon */
-  useEffect(() => {
-    const link = document.querySelector("link[rel~='icon']") || document.createElement('link');
-    link.type = 'image/png';
-    link.rel = 'icon';
-    link.href = '/Gombe Junior School logo.png';
-    document.getElementsByTagName('head')[0].appendChild(link);
-    return () => { link.href = '/favicon.ico'; };
-  }, []);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: CREAM }}>
@@ -143,15 +135,17 @@ export default function GalleryPage() {
         className="relative py-20 overflow-hidden text-white"
         style={{ backgroundColor: BURGUNDY }}
       >
+        {/* Faint background photo */}
         <div className="absolute inset-0">
           <img
-            src="/GJS Pics/IMG_1707.JPG"
+            src="/GJS%20Pics/IMG_1707.JPG"
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover opacity-10"
           />
         </div>
 
+        {/* Decorative blobs */}
         <div
           className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10"
           style={{ backgroundColor: YELLOW }}
@@ -167,6 +161,7 @@ export default function GalleryPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
           >
+            {/* Badge */}
             <span
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-5 text-sm font-semibold tracking-wide uppercase"
               style={{ backgroundColor: `${YELLOW}25`, color: YELLOW }}
@@ -212,6 +207,7 @@ export default function GalleryPage() {
               whileHover={{ scale: 1.025, transition: { duration: 0.2 } }}
               onClick={() => openLightbox(index)}
             >
+              {/* Photo */}
               <img
                 src={img.src}
                 alt={img.caption}

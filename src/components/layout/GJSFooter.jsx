@@ -22,7 +22,7 @@ const GJSFooter = () => {
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <img src="/images/GombeBadge.png" alt="Gombe Junior School" className="h-10 w-auto brightness-0 invert" />
+              <img src="/GombeBadge.png" alt="Gombe Junior School" className="h-10 w-auto brightness-0 invert" />
               <div className="leading-tight">
                 <div className="text-base font-bold">Gombe Junior School</div>
                 <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
@@ -87,19 +87,19 @@ const GJSFooter = () => {
             <h3 className="text-base font-semibold" style={{ color: brandColors.primary }}>Useful Links</h3>
             <ul className="space-y-2">
               {[
-                { label: 'News', href: '#news' },
-                { label: 'Events', href: '#events' },
-                { label: 'Alumni', href: '#alumni' },
-                { label: 'Facilities', href: '#facilities' },
-                { label: 'Contact Us', href: '#contact' },
+                { label: 'News', href: '/news' },
+                { label: 'Events', href: '/events' },
+                { label: 'Alumni', href: '/alumni' },
+                { label: 'Facilities', href: '/facilities' },
+                { label: 'Contact Us', href: '/contact' },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-300 hover:text-[#FFD700] transition-colors duration-300 text-sm block"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -142,7 +142,7 @@ const GJSFooter = () => {
             <div className="flex items-center gap-2">
               <span className="text-gray-300 text-sm">Powered by</span>
               <img 
-                src="/images/Inzozi-grayscale.png" 
+                src="/Inzozi-grayscale.png" 
                 alt="Inzozi Logo" 
                 className="h-10 w-auto" 
               />

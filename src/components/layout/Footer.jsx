@@ -15,7 +15,7 @@ const Footer = () => {
     { name: 'St. Andrew Kaggwa Gombe High School - Bujuuko', path: '/institutions/sakghs-bujuuko' },
     { name: 'Gombe Junior School - Gulu', path: '/institutions/gjs-gulu' },
     { name: 'Gombe Junior School - Boarding', path: '/institutions/gjs-boarding' },
-    { name: 'Scooby Doo International School - Katale', path: '/institutions/scooby-katale' },
+
     { name: 'Scooby Doo International School - Gulu', path: '/institutions/scooby-gulu' },
     { name: 'Jimmy Sekasi Business Institute', path: '/institutions/jsbi' },
   ];
@@ -49,7 +49,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/logo.png" alt="GES Logo" className="h-16 w-auto" />
+                <img src="/GES.png" alt="GES Logo" className="h-16 w-auto" />
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">Gombe Education Service</h3>
                   <p className="text-ges-gold text-sm font-semibold">EXCELLENCE SINCE 1995</p>
@@ -193,7 +193,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-gray-600 text-sm">Powered by</span>
                   <img 
-                    src="/images/Inzozi-grayscale1.png" 
+                    src="/Inzozi-grayscale1.png" 
                     alt="Inzozi Logo" 
                     className="h-16 w-auto" 
                   />

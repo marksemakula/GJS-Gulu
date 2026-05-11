@@ -63,10 +63,10 @@ const GJSGulu = () => {
     {
       label: 'Admissions',
       dropdown: [
-        { label: 'Apply Now', href: '#apply' },
-        { label: 'Resources - Fees', href: '#fees' },
+        { label: 'Apply Now', href: '#apply', route: '/admissions/apply' },
+        { label: 'Resources - Fees', href: '#fees', route: '/admissions/fees' },
         { label: 'FAQs', href: '#faqs' },
-        { label: 'Documents', href: '#documents' },
+        { label: 'Documents', href: '#documents', route: '/admissions/documents' },
         { label: 'Overview', href: '#admissions-overview' },
       ],
     },

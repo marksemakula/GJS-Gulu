@@ -845,7 +845,7 @@ const GJSGulu = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/20 pt-3">
+          <div className="pt-3">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-300 mb-4 md:mb-0">
                 &copy; {new Date().getFullYear()} Gombe Junior School (GJS). All rights reserved.

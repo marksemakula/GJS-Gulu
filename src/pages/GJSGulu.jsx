@@ -794,7 +794,7 @@ const GJSGulu = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <LuMapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">Gulu Campus, Kampala</span>
+                  <span className="text-gray-200">Gulu Campus, Uganda</span>
                 </div>
               </div>
             </div>

@@ -11,8 +11,8 @@ const brandColors = {
 
 
 const campusesData = [
-  { name: 'Kawaala Campus', path: '/institutions/sakghs-kawaala', contact: '+256 700 000 000', location: 'Kawaala, Kampala' },
-  { name: 'Bujuuko Campus', path: '/institutions/sakghs-bujuuko', contact: '+256 700 000 001', location: 'Bujuuko, Wakiso' },
+  { name: 'Kawaala Campus', path: '/institutions/sakghs-kawaala', contact: '0708 800 008 / 0760 063 577', location: 'Kawaala, Kampala' },
+  { name: 'Bujuuko Campus', path: '/institutions/sakghs-bujuuko', contact: '0708 800 008 / 0760 063 577', location: 'Bujuuko, Wakiso' },
 ];
 
 const SAKFooter = React.memo(() => {
@@ -61,7 +61,7 @@ const SAKFooter = React.memo(() => {
             <h3 className="text-base font-semibold" style={{ color: brandColors.primary }}>Contact</h3>
             <div className="flex items-center space-x-3 text-sm text-white">
               <LuPhone className="w-4 h-4" style={{ color: brandColors.primary }} />
-              <span>+256 700 000 000 / 001</span>
+              <span>0708 800 008 / 0760 063 577</span>
             </div>
             <div className="flex items-center space-x-3 text-sm text-white">
               <LuMail className="w-4 h-4" style={{ color: brandColors.primary }} />

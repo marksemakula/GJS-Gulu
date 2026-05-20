@@ -152,8 +152,7 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <LuPhone className="w-5 h-5 text-ges-teal flex-shrink-0" />
                   <div>
-                    <p className="text-gray-700">+256 700 123 456</p>
-                    <p className="text-gray-700">+256 800 987 654</p>
+                    <p className="text-gray-700">0708 800 008 / 0760 063 577</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

@@ -46,7 +46,7 @@ export const CMSProvider = ({ children }) => {
       curriculum: ['National Curriculum', 'Sciences', 'Arts'],
       contact: {
         email: 'info@gombehighschool.ges.ac.ug',
-        phone: '+256 700 123 456',
+        phone: '0708 800 008 / 0760 063 577',
         address: 'Gombe District, Uganda'
       },
       features: ['Science Labs', 'Library', 'Sports Complex']
@@ -60,7 +60,7 @@ export const CMSProvider = ({ children }) => {
       curriculum: ['Primary Education', 'Foundation Skills'],
       contact: {
         email: 'info@gombejuniorschool.ges.ac.ug',
-        phone: '+256 700 123 457',
+        phone: '0708 800 008 / 0760 063 577',
         address: 'Gombe District, Uganda'
       },
       features: ['Playground', 'Computer Lab', 'Art Studio']

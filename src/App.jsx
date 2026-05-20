@@ -5,6 +5,7 @@ import GalleryPage from './pages/GalleryPage';
 import ApplyPage from './pages/admissions/ApplyPage';
 import FeesPage from './pages/admissions/FeesPage';
 import DocumentsPage from './pages/admissions/DocumentsPage';
+import PrincipalMessage from './pages/PrincipalMessage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/admissions/apply" element={<ApplyPage />} />
         <Route path="/admissions/fees" element={<FeesPage />} />
         <Route path="/admissions/documents" element={<DocumentsPage />} />
+        <Route path="/principals-message" element={<PrincipalMessage />} />
       </Routes>
     </BrowserRouter>
   );

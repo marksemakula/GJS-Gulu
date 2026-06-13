@@ -67,6 +67,7 @@ const GJSHeader = () => {
             <img src="/GombeBadge.png" alt="Gombe Junior School" className="h-12 w-auto" />
             <div className="leading-tight">
               <div className="text-lg font-bold text-white">Gombe Junior School</div>
+              <div className="text-xs font-semibold text-white/80">Gulu Campus — Gulu Town, Uganda</div>
               <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
                 Ssosolye bwatafa
               </div>

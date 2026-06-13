@@ -11,10 +11,10 @@ const brandColors = {
 
 const documents = [
   {
-    id: 'boarding',
-    title: 'Boarding School Requirements & Fees',
-    file: 'BOARDING SCHOOL REQUIREMENTS.pdf',
-    description: 'Detailed breakdown of fees and requirements for our boarding section.',
+    id: 'gulu',
+    title: 'Gulu School Requirements & Fees',
+    file: 'KIKAJJO SCHOOL REQUIREMENTS.pdf',
+    description: 'Detailed breakdown of fees and requirements for our Gulu section.',
   },
   {
     id: 'day',
@@ -25,7 +25,7 @@ const documents = [
 ];
 
 const FeesPage = () => {
-  const [activeTab, setActiveTab] = useState('boarding');
+  const [activeTab, setActiveTab] = useState('gulu');
 
   const activeDoc = documents.find(d => d.id === activeTab);
 

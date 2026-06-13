@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Marquee from 'react-fast-marquee';
+import MarqueeLib from 'react-fast-marquee';
+const Marquee = MarqueeLib.default || MarqueeLib;
 import { motion } from 'framer-motion';
 import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExternalLink, LuTarget, LuMenu, LuX, LuChevronDown } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 const gjsPics = [
   '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',
-  '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG',
+  '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG',
   '/GJS%20Pics/IMG_0069.JPG',
   '/GJS%20Pics/IMG_1378.JPG',
   '/GJS%20Pics/IMG_1678.JPG',
@@ -46,8 +47,8 @@ const GJSGulu = () => {
         { label: 'School Profile', href: '#school-profile' },
         { label: 'Mission & Vision', href: '#mission' },
         { label: 'Core Values', href: '#core-values' },
-        { label: 'Board of Governors', href: '#board' },
-        { label: "Principal's Message", href: '#principals-message', route: '/principals-message' },
+        { label: 'School Management Committee', href: '#board' },
+        { label: "Principal's Message", href: '#principals-message', route: '/principal-message' },
         { label: 'Administration and Management Team', href: '#management' },
       ],
     },
@@ -57,7 +58,7 @@ const GJSGulu = () => {
         { label: 'Academic Program', href: '#academic-program' },
         { label: 'Curriculum - Subjects', href: '#curriculum' },
         { label: 'Departments', href: '#departments' },
-        { label: 'UNED Results - Archives', href: '#uned-results' },
+        { label: 'UNEB Results - Archives', href: '#uned-results' },
       ],
     },
     {
@@ -145,201 +146,34 @@ const GJSGulu = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden" style={{ viewTransitionName: 'institution-gjs-gulu' }}>
-      {/* Add CSS for floating animations */}
+      {/* Lightweight CSS-only floating decorations — runs on compositor, not main thread */}
       <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(-5deg); }
-        }
-        @keyframes floatReverse {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(20px) rotate(10deg); }
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes spinSlow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .float { animation: float 6s ease-in-out infinite; }
-        .float-slow { animation: floatSlow 8s ease-in-out infinite; }
-        .float-reverse { animation: floatReverse 7s ease-in-out infinite; }
-        .spin { animation: spin 20s linear infinite; }
-        .spin-slow { animation: spinSlow 30s linear infinite; }
+        @keyframes bgFloat1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+        @keyframes bgFloat2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(15px) rotate(-3deg); } }
+        @keyframes bgFloat3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .bg-float-1 { animation: bgFloat1 8s ease-in-out infinite; will-change: transform; }
+        .bg-float-2 { animation: bgFloat2 10s ease-in-out infinite; will-change: transform; }
+        .bg-float-3 { animation: bgFloat3 12s ease-in-out infinite; will-change: transform; }
       `}</style>
 
-      {/* Global Floating Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Stars */}
-        <motion.div 
-          className="absolute top-10 left-[10%] w-12 h-12 text-yellow-400 opacity-30"
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 360]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-        </motion.div>
-
-        {/* Colorful Circles */}
-        <motion.div 
-          className="absolute top-32 right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-pink-300 to-purple-300 opacity-20"
-          animate={{ 
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-        
-        <motion.div 
-          className="absolute top-[40%] left-[5%] w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-cyan-300 opacity-20"
-          animate={{ 
-            y: [0, -25, 0],
-            x: [0, 10, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-
-        {/* Triangle */}
-        <motion.div 
-          className="absolute bottom-[30%] right-[10%] w-16 h-16 opacity-20"
-          animate={{ 
-            rotate: [0, 360],
-            y: [0, -15, 0]
-          }}
-          transition={{ duration: 12, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="#FFD700">
-            <path d="M12 2L2 22h20L12 2z"/>
-          </svg>
-        </motion.div>
-
-        {/* Heart Shape */}
-        <motion.div 
-          className="absolute top-[60%] left-[80%] w-12 h-12 text-red-300 opacity-25"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            y: [0, -20, 0]
-          }}
-          transition={{ duration: 5, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        </motion.div>
-
-        {/* Cloud Shape */}
-        <motion.div 
-          className="absolute top-20 right-[25%] w-24 h-16 opacity-15"
-          animate={{ 
-            x: [0, 30, 0],
-            y: [0, -10, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="#87CEEB">
-            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17C6.65 5.09 5.26 5.97 4.23 7.13 2.84 8.6 2 10.54 2 12.62c0 2.89 1.86 5.35 4.46 6.27.3.11.62.11.93.11h11.21c.31 0 .63-.04.93-.11C22.14 17.97 24 15.51 24 12.62c0-2.08-.84-4.02-2.23-5.49-.97-1.16-2.36-2.04-3.7-2.96-.17-.12-.36-.23-.55-.34C18.15 4.43 16.78 4 15.3 4c-3.64 0-6.67 2.59-7.35 6.04h11.4z"/>
-          </svg>
-        </motion.div>
-
-        {/* Pencil Icon */}
-        <motion.div 
-          className="absolute top-[45%] right-[5%] w-14 h-14 text-orange-400 opacity-25"
-          animate={{ 
-            rotate: [0, 15, 0, -15, 0],
-            y: [0, -15, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-          </svg>
-        </motion.div>
-
-        {/* ABC Blocks */}
-        <motion.div 
-          className="absolute bottom-[20%] left-[15%] w-16 h-16 text-green-400 opacity-20"
-          animate={{ 
-            y: [0, 20, 0],
-            rotate: [0, -10, 0, 10, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <rect x="4" y="4" width="7" height="7" rx="1"/>
-            <rect x="13" y="4" width="7" height="7" rx="1"/>
-            <rect x="4" y="13" width="7" height="7" rx="1"/>
-            <rect x="13" y="13" width="7" height="7" rx="1"/>
-          </svg>
-        </motion.div>
-
-        {/* Music Note */}
-        <motion.div 
-          className="absolute top-[70%] right-[30%] w-10 h-10 text-purple-400 opacity-25"
-          animate={{ 
-            y: [0, -25, 0],
-            rotate: [0, 10, 0]
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-          </svg>
-        </motion.div>
-
-        {/* Ball */}
-        <motion.div 
-          className="absolute top-[25%] left-[70%] w-14 h-14 rounded-full bg-gradient-to-br from-red-400 to-orange-400 opacity-25"
-          animate={{ 
-            y: [0, -30, 0],
-            scale: [1, 1.15, 1]
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-
-        {/* Butterfly */}
-        <motion.div 
-          className="absolute bottom-[40%] left-[25%] w-12 h-12 text-pink-400 opacity-30"
-          animate={{ 
-            x: [0, 20, 0, -20, 0],
-            y: [0, -15, 0, -10, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2c-1.1 0-2 .9-2 2v2.17c-1.17.41-2 1.52-2 2.83v8c0 1.66 1.34 3 3 3h2c1.66 0 3-1.34 3-3V9c0-1.31-.83-2.42-2-2.83V4c0-1.1-.9-2-2-2zm-7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.35 0 .69-.06 1-.17v-5.66c-.31-.11-.65-.17-1-.17zm14 0c-.35 0-.69.06-1 .17v5.66c.31.11.65.17 1 .17 1.66 0 3-1.34 3-3s-1.34-3-3-3z"/>
-          </svg>
-        </motion.div>
-
-        {/* Book */}
-        <motion.div 
-          className="absolute top-[55%] left-[90%] w-12 h-12 text-blue-500 opacity-20"
-          animate={{ 
-            rotate: [0, -10, 0, 10, 0],
-            y: [0, -12, 0]
-          }}
-          transition={{ duration: 9, repeat: Infinity }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-          </svg>
-        </motion.div>
+      {/* Global Floating Elements — reduced to 6 CSS-animated shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
+        <div className="absolute top-10 left-[10%] w-12 h-12 text-yellow-400 opacity-20 bg-float-1">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div className="absolute top-32 right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-pink-300 to-purple-300 opacity-15 bg-float-2" />
+        <div className="absolute top-[40%] left-[5%] w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-cyan-300 opacity-15 bg-float-3" />
+        <div className="absolute bottom-[30%] right-[10%] w-16 h-16 opacity-15 bg-float-1" style={{ animationDelay: '-3s' }}>
+          <svg viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2L2 22h20L12 2z"/></svg>
+        </div>
+        <div className="absolute top-[25%] left-[70%] w-14 h-14 rounded-full bg-gradient-to-br from-red-400 to-orange-400 opacity-15 bg-float-2" style={{ animationDelay: '-5s' }} />
+        <div className="absolute top-[70%] right-[30%] w-10 h-10 text-purple-400 opacity-15 bg-float-3" style={{ animationDelay: '-2s' }}>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
       </div>
       {/* Custom Header/Navbar */}
       <header className="sticky top-0 z-50 bg-white shadow-md overflow-visible">
-        {/* Floating Decorative Elements */}
-        <div className="absolute top-0 left-10 w-8 h-8 bg-yellow-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-        <div className="absolute top-2 right-20 w-6 h-6 bg-red-300 rounded-full opacity-20 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-        <div className="absolute top-4 left-1/3 w-10 h-10 bg-blue-300 rounded-full opacity-20 animate-pulse" style={{ animationDuration: '5s' }}></div>
+
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-visible">
           <div className="flex items-center justify-between h-20">
@@ -351,7 +185,7 @@ const GJSGulu = () => {
               transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
             >
               <h1 className="text-2xl font-bold" style={{ color: brandColors.secondary }}>
-                GJS <span style={{ color: brandColors.primary }}>Gulu</span>
+                Gombe Junior School - <span style={{ color: brandColors.primary }}>Gulu</span>
               </h1>
             </motion.div>
 
@@ -512,7 +346,7 @@ const GJSGulu = () => {
                 Gombe Junior School (GJS)
               </h1>
               <p className="text-xl mb-4" style={{ color: brandColors.primary }}>
-                Gulu Campus
+                Gulu Campus (Day)
               </p>
             </motion.div>
             
@@ -526,6 +360,7 @@ const GJSGulu = () => {
               <img 
                 src="/Gombe Junior School logo.png" 
                 alt="Gombe Junior School" 
+                loading="lazy"
                 className="w-96 h-96 object-contain"
               />
             </motion.div>
@@ -591,8 +426,8 @@ const GJSGulu = () => {
             >
               <Link to="/gallery" className="block w-full h-full">
                 <img 
-                  src="/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG" 
-                  alt="Gombe Junior School Boarding" 
+                  src="/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG" 
+                  alt="Gombe Junior School Gulu" 
                   className="w-full h-full object-cover aspect-video transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
@@ -611,11 +446,12 @@ const GJSGulu = () => {
               style={{ border: `4px solid ${brandColors.secondary}` }}
             >
               <video 
-                src="/GJS%20KAMPALA%20VIRTUAL%20TOUR.mp4" 
+                src="/GJS%20KAMPALA%20VIRTUAL%20TOUR.mp4"  
                 autoPlay 
                 loop 
                 muted 
                 playsInline
+                preload="none"
                 className="w-full h-full object-cover aspect-video"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
@@ -734,7 +570,7 @@ const GJSGulu = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className="flex items-center space-x-2">
                 <LuMapPin className="w-5 h-5" style={{ color: brandColors.primary }} />
-                <span>Gulu, Kampala</span>
+                <span>Gulu Town, Uganda</span>
               </div>
               <div className="flex items-center space-x-2">
                 <LuPhone className="w-5 h-5" style={{ color: brandColors.primary }} />
@@ -794,7 +630,7 @@ const GJSGulu = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <LuMapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">Gulu Campus, Uganda</span>
+                  <span className="text-gray-200">Gulu Campus, Gulu Town</span>
                 </div>
               </div>
             </div>

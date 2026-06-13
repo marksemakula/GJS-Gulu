@@ -10,8 +10,8 @@ const brandColors = {
 };
 
 const campuses = [
-  { name: 'Gombe Junior School (Boarding)', contact: '0708 800 008 / 0760 063 577', path: '/institutions/gjs-boarding' },
-  { name: 'Gombe Junior School Gulu (Day)', contact: '0708 800 008 / 0760 063 577', path: '/institutions/gjs-gulu' },
+  { name: 'Gombe Junior School (Gulu)', contact: '0708 800 008 / 0760 063 577', path: '/institutions/gjs-gulu' },
+
 ];
 
 const GJSFooter = () => {
@@ -25,6 +25,7 @@ const GJSFooter = () => {
               <img src="/GombeBadge.png" alt="Gombe Junior School" className="h-10 w-auto brightness-0 invert" />
               <div className="leading-tight">
                 <div className="text-base font-bold">Gombe Junior School</div>
+                <div className="text-xs text-gray-300">Gulu Campus — Gulu Town, Uganda</div>
                 <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
                   Ssosolye bwatafa
                 </div>
@@ -111,12 +112,13 @@ const GJSFooter = () => {
             <div className="space-y-2 text-gray-300 text-sm">
               <div className="flex items-start gap-2">
                 <LuMapPin className="w-4 h-4 mt-0.5" style={{ color: brandColors.primary }} />
-                <p>Wakiso District, Uganda<br />P.O. Box 71523, Kampala</p>
+                <p>Gulu Town, Uganda<br />P.O. Box 71523, Gulu</p>
               </div>
               <div className="flex items-start gap-2">
                 <LuPhone className="w-4 h-4 mt-0.5" style={{ color: brandColors.primary }} />
                 <div>
-                  <p>0708 800 008 / 0760 063 577</p>
+                  <p>0708 800 008</p>
+                  <p>0760 063 577</p>
                 </div>
               </div>
               <div className="flex items-start gap-2">

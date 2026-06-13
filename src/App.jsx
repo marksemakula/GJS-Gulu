@@ -14,10 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<GJSGulu />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/principal-message" element={<PrincipalMessage />} />
         <Route path="/admissions/apply" element={<ApplyPage />} />
         <Route path="/admissions/fees" element={<FeesPage />} />
         <Route path="/admissions/documents" element={<DocumentsPage />} />
-        <Route path="/principals-message" element={<PrincipalMessage />} />
       </Routes>
     </BrowserRouter>
   );

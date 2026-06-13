@@ -18,9 +18,9 @@ const documents = [
     icon: LuFileText,
   },
   {
-    title: 'Boarding School Requirements',
-    file: 'BOARDING SCHOOL REQUIREMENTS.pdf',
-    description: 'Detailed list of requirements and fee structure for boarding students.',
+    title: 'Gulu School Requirements',
+    file: 'KIKAJJO SCHOOL REQUIREMENTS.pdf',
+    description: 'Detailed list of requirements and fee structure for Gulu campus students.',
     type: 'pdf',
     icon: LuFileCheck,
   },

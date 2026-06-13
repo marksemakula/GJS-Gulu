@@ -13,7 +13,7 @@ import {
 
 const galleryImages = [
   { src: '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',          caption: 'Gombe High School'         },
-  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20BOARDING.JPG', caption: 'GJS Boarding Campus'    },
+  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG', caption: 'GJS Gulu Campus'    },
   { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20DAY.jpg',  caption: 'GJS Day Life'              },
   { src: '/GJS%20Pics/IMG_0069.JPG',  caption: 'School Moments' },
   { src: '/GJS%20Pics/IMG_1378.JPG',  caption: 'School Moments' },

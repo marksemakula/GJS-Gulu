@@ -13,10 +13,9 @@ const Footer = () => {
   const institutions = [
     { name: 'St. Andrew Kaggwa Gombe High School - Kawaala', path: '/institutions/sakghs-kawaala' },
     { name: 'St. Andrew Kaggwa Gombe High School - Bujuuko', path: '/institutions/sakghs-bujuuko' },
-    { name: 'Gombe Junior School - Gulu', path: '/institutions/gjs-gulu' },
-    { name: 'Gombe Junior School - Boarding', path: '/institutions/gjs-boarding' },
+    { name: 'Gombe Junior School - Kikajjo', path: '/institutions/gjs-kikajjo' },
 
-    { name: 'Scooby Doo International School - Gulu', path: '/institutions/scooby-gulu' },
+    { name: 'Scooby Doo International School - Kikajjo', path: '/institutions/scooby-kikajjo' },
     { name: 'Jimmy Sekasi Business Institute', path: '/institutions/jsbi' },
   ];
 
@@ -152,7 +151,8 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <LuPhone className="w-5 h-5 text-ges-teal flex-shrink-0" />
                   <div>
-                    <p className="text-gray-700">0708 800 008 / 0760 063 577</p>
+                    <p className="text-gray-700">0708 800 002</p>
+                    <p className="text-gray-700">0708 800 004</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

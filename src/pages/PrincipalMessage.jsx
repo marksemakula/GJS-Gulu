@@ -15,7 +15,7 @@ const PrincipalMessage = () => {
             Back to Home
           </Link>
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-[#B1742F]">Gombe Junior School</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-[#B1742F]">Gombe Junior School — Gulu Campus</p>
             <h1 className="text-xl sm:text-2xl font-semibold text-[#800E13]">Principal&apos;s Message</h1>
           </div>
         </div>

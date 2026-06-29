@@ -4,16 +4,16 @@ import "./CollageBackground.css";
 
 // List of selected images for the collage
 const images = [
-  "/15-09-2015-12-03-57_DSCN1414.jpg",
-  "/26-08-2015-01-01-46_IMG_1441.jpg",
-  "/26-08-2015-01-03-29_IMG_3691.jpg",
-  "/26-08-2015-12-49-54__MG_8635.jpg",
-  "/26-08-2015-12-54-03__MG_9650.jpg",
-  "/73e7f5be-efe4-4779-a0dd-ec96e761e11c.jpg",
-  "/annie-spratt-V-XM4kkWpng-unsplash.jpg",
-  "/raissa-lara-lutolf-fasel-ivKWcUFJQtE-unsplash.jpg",
-  "/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg",
-  "/heather-suggitt-AjB5qK2rnbU-unsplash.jpg"
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115155.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115602.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162350.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163346.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_144040.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_135314.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260529_163027.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260615_162645.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162541.jpg",
+  "/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162703.jpg"
 ];
 
 

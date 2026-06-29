@@ -7,29 +7,35 @@ import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExt
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 const gjsPics = [
-  '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',
-  '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG',
-  '/GJS%20Pics/IMG_0069.JPG',
-  '/GJS%20Pics/IMG_1378.JPG',
-  '/GJS%20Pics/IMG_1678.JPG',
-  '/GJS%20Pics/IMG_1685.JPG',
-  '/GJS%20Pics/IMG_1690.JPG',
-  '/GJS%20Pics/IMG_1697.JPG',
-  '/GJS%20Pics/IMG_1707.JPG',
-  '/GJS%20Pics/IMG_1708.JPG',
-  '/GJS%20Pics/IMG_1737.JPG',
-  '/GJS%20Pics/IMG_1747.JPG',
-  '/GJS%20Pics/IMG_1764.JPG',
-  '/GJS%20Pics/IMG_1768.JPG',
-  '/GJS%20Pics/IMG_2804.JPG',
-  '/GJS%20Pics/IMG_5387.JPG',
-  '/GJS%20Pics/IMG_7534.JPG',
-  '/GJS%20Pics/IMG_7541.JPG',
-  '/GJS%20Pics/IMG_7542.JPG',
-  '/GJS%20Pics/IMG_7544.JPG',
-  '/GJS%20Pics/IMG_8873.JPG',
-  '/GJS%20Pics/IMG_8893.JPG',
-  '/GJS%20Pics/IMG_8912.JPG',
+  // Academics - Classes
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115155.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115602.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115727.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_120102.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_121413.jpg',
+  // School Activities - Aerobics
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162350.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162423.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162704.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163346.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163408.jpg',
+  // School Activities - Elections
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_144040.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_145717.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_150458.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_161806.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_135314.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_135650.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_140049.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_140106.jpg',
+  // School Activities - Club Activities
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260529_163027.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260601_163812.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260615_162645.jpg',
+  // Student Life - Religious Hour
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162541.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162703.jpg',
+  '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162811.jpg',
 ];
 
 const GJSGulu = () => {
@@ -426,7 +432,7 @@ const GJSGulu = () => {
             >
               <Link to="/gallery" className="block w-full h-full">
                 <img 
-                  src="/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG" 
+                  src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_142549.jpg" 
                   alt="Gombe Junior School Gulu" 
                   className="w-full h-full object-cover aspect-video transform group-hover:scale-105 transition-transform duration-700"
                 />
@@ -446,7 +452,7 @@ const GJSGulu = () => {
               style={{ border: `4px solid ${brandColors.secondary}` }}
             >
               <video 
-                src="/GJS%20KAMPALA%20VIRTUAL%20TOUR.mp4"  
+                src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Home%20page/Gombe%20Junior%20School%20-%20Gulu%20Virtual%20tour.mp4"  
                 autoPlay 
                 loop 
                 muted 

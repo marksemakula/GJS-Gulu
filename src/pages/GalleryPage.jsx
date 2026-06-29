@@ -12,30 +12,50 @@ import {
 } from 'react-icons/lu';
 
 const galleryImages = [
-  { src: '/GJS%20Pics/GOMBE%20HIGH%20SCHOOL.jpg',          caption: 'Gombe High School'         },
-  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20KIKAJJO.JPG', caption: 'GJS Gulu Campus'    },
-  { src: '/GJS%20Pics/GOMBE%20JUNIOR%20SCHOOL%20DAY.jpg',  caption: 'GJS Day Life'              },
-  { src: '/GJS%20Pics/IMG_0069.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1378.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1678.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1685.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1690.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1697.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1707.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1708.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1737.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1747.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1764.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_1768.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_2804.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_5387.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_7534.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_7541.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_7542.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_7544.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_8873.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_8893.JPG',  caption: 'School Moments' },
-  { src: '/GJS%20Pics/IMG_8912.JPG',  caption: 'School Moments' },
+  // Academics - Classes
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115155.jpg', caption: 'Classroom Session' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115602.jpg', caption: 'Learning in Action' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115727.jpg', caption: 'Academic Excellence' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_120102.jpg', caption: 'Students in Class' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_121413.jpg', caption: 'Interactive Learning' },
+  // School Activities - Aerobics
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162350.jpg', caption: 'Aerobics Session' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162423.jpg', caption: 'Fitness Activities' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162704.jpg', caption: 'Students Exercising' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163346.jpg', caption: 'Physical Education' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163408.jpg', caption: 'Active Students' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_163707.jpg', caption: 'Aerobics Fun' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_164356.jpg', caption: 'Sports & Fitness' },
+  // School Activities - Club Activities
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260529_163027.jpg', caption: 'Club Activities' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260529_163049.jpg', caption: 'Student Clubs' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260529_163402.jpg', caption: 'Extracurricular Fun' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260601_163812.jpg', caption: 'Club Engagement' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260601_163833.jpg', caption: 'Student Leadership' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260601_164028.jpg', caption: 'Community Activities' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260601_164240.jpg', caption: 'Team Building' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260615_162645.jpg', caption: 'Creative Sessions' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260615_162946.jpg', caption: 'Skills Development' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Club%20Activities/20260615_163226.jpg', caption: 'Talent Showcase' },
+  // School Activities - Elections
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_144040.jpg', caption: 'School Elections' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_145717.jpg', caption: 'Student Democracy' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_150458.jpg', caption: 'Election Day' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260618_161806.jpg', caption: 'Civic Education' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_135314.jpg', caption: 'Leadership Elections' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_135650.jpg', caption: 'Campaign Speeches' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_140049.jpg', caption: 'Voting Process' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_140106.jpg', caption: 'Election Results' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_140346.jpg', caption: 'Student Prefects' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_142549.jpg', caption: 'Leadership Ceremony' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_144727.jpg', caption: 'School Governance' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_150604.jpg', caption: 'Inauguration' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_154626.jpg', caption: 'Celebrations' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_154723.jpg', caption: 'Victory Moments' },
+  // Student Life - Religious Hour
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162541.jpg', caption: 'Religious Hour' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162703.jpg', caption: 'Spiritual Growth' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162811.jpg', caption: 'Faith & Values' },
 ];
 
 const BURGUNDY = '#800E13';
@@ -138,7 +158,7 @@ export default function GalleryPage() {
         {/* Faint background photo */}
         <div className="absolute inset-0">
           <img
-            src="/GJS%20Pics/IMG_1707.JPG"
+            src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_144727.jpg"
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover opacity-10"

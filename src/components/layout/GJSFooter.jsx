@@ -27,7 +27,7 @@ const GJSFooter = () => {
                 <div className="text-base font-bold">Gombe Junior School</div>
                 <div className="text-xs text-gray-300">Gulu Campus — Gulu Town, Uganda</div>
                 <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
-                  Ssosolye bwatafa
+                  Holistic Education
                 </div>
               </div>
             </div>

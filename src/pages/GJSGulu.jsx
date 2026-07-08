@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import MarqueeLib from 'react-fast-marquee';
 const Marquee = MarqueeLib.default || MarqueeLib;
 import { motion } from 'framer-motion';
-import { LuMapPin, LuPhone, LuMail, LuUsers, LuAward, LuBookOpen, LuGlobe, LuExternalLink, LuTarget, LuMenu, LuX, LuChevronDown } from 'react-icons/lu';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { LuMapPin, LuPhone, LuMail, LuMenu, LuX, LuChevronDown, LuArrowRight } from 'react-icons/lu';
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 const gjsPics = [
   // Academics - Classes
@@ -38,6 +38,23 @@ const gjsPics = [
   '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162811.jpg',
 ];
 
+// Brand palette — burgundy-led, gold used sparingly as an accent
+const brand = {
+  burgundy: '#800E13',
+  burgundyDark: '#5C0A0E',
+  gold: '#C9A227',      // muted, corporate gold for accents
+  goldBright: '#FFD700', // reserved for very small highlights
+  ink: '#1F2937',
+  muted: '#6B7280',
+};
+
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
 const GJSGulu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -50,10 +67,10 @@ const GJSGulu = () => {
     {
       label: 'About Us',
       dropdown: [
-        { label: 'School Profile', href: '#school-profile' },
-        { label: 'Mission & Vision', href: '#mission' },
-        { label: 'Core Values', href: '#core-values' },
-        { label: 'School Management Committee', href: '#board' },
+        { label: 'School Profile', route: '/about/school-profile' },
+        { label: 'Mission & Vision', route: '/about/school-profile#mission' },
+        { label: 'Core Values', route: '/about/school-profile#core-values' },
+        { label: 'School Management Committee', route: '/about/management-committee' },
         { label: "Principal's Message", href: '#principals-message', route: '/principal-message' },
         { label: 'Administration and Management Team', href: '#management' },
       ],
@@ -64,7 +81,7 @@ const GJSGulu = () => {
         { label: 'Academic Program', href: '#academic-program' },
         { label: 'Curriculum - Subjects', href: '#curriculum' },
         { label: 'Departments', href: '#departments' },
-        { label: 'UNEB Results - Archives', href: '#uned-results' },
+        { label: 'UNEB Results Archive', route: '/academics/uneb-results' },
       ],
     },
     {
@@ -97,8 +114,8 @@ const GJSGulu = () => {
           return next;
         });
         setHeroVisible(true);
-      }, 500);
-    }, 4000);
+      }, 700);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -115,88 +132,86 @@ const GJSGulu = () => {
       link.href = '/favicon.ico';
     };
   }, []);
-  const brandColors = {
-    primary: '#FFD700', // Yellow
-    secondary: '#800E13', // Burgundy
-  };
-
 
   const programs = [
     {
-      title: 'IB Program',
-      description: 'International Baccalaureate foundation tailored for primary learners',
-      features: ['Primary Years', 'Inquiry Learning', 'Global Skills'],
-    },
-    {
       title: 'ICT & e-Learning Program',
-      description: 'Digital-first learning that builds strong tech literacy from the early years',
+      description: 'Digital-first learning that builds strong tech literacy from the early years.',
       features: ['Digital Literacy', 'Coding Fundamentals', 'Blended Learning'],
     },
     {
       title: 'National Curriculum',
-      description: 'Uganda National Curriculum integrated with international standards for P1-P7',
-      features: ['Primary (P1-P7)', 'Life Skills', 'Competency-Based'],
-    }
+      description: 'Uganda National Curriculum integrated with international standards for P1-P6.',
+      features: ['Primary (P1-P6)', 'Life Skills', 'Competency-Based'],
+    },
+    {
+      title: 'Co-Curricular Activities',
+      description: 'A vibrant programme of activities that develops teamwork, discipline, and well-rounded learners.',
+      features: ['Athletics', 'Clubs & Societies', 'Music, Dance & Drama'],
+    },
   ];
 
-  // Each logo slot: width 120px + mx-10 (40px each side) = 200px. 7 logos × 200 = 1400px per copy.
   const carouselLogos = [
     { src: '/MoES1.png', alt: 'MoES' },
     { src: '/GES.png', alt: 'GES' },
     { src: '/Flag_of_Buganda.svg', alt: 'Flag of Buganda' },
     { src: '/Gombe High logo.png', alt: 'Gombe High' },
     { src: '/IPP.png', alt: 'IPP' },
-    { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Jimmy Ssekasi Business Institute' },
+    { src: '/Jimmy Ssekasi Business Institute Logo.png', alt: 'Gombe Institute of Business, Science & Technology' },
     { src: '/scooby-logo.png', alt: 'Scooby' },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden" style={{ viewTransitionName: 'institution-gjs-gulu' }}>
-      {/* Lightweight CSS-only floating decorations — runs on compositor, not main thread */}
-      <style>{`
-        @keyframes bgFloat1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
-        @keyframes bgFloat2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(15px) rotate(-3deg); } }
-        @keyframes bgFloat3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-        .bg-float-1 { animation: bgFloat1 8s ease-in-out infinite; will-change: transform; }
-        .bg-float-2 { animation: bgFloat2 10s ease-in-out infinite; will-change: transform; }
-        .bg-float-3 { animation: bgFloat3 12s ease-in-out infinite; will-change: transform; }
-      `}</style>
-
-      {/* Global Floating Elements — reduced to 6 CSS-animated shapes */}
+    <div className="min-h-screen bg-white relative" style={{ viewTransitionName: 'institution-gjs-gulu' }}>
+      {/* Subtle background accents — static, very low opacity */}
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-10 left-[10%] w-12 h-12 text-yellow-400 opacity-20 bg-float-1">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <div className="absolute top-32 right-[15%] w-16 h-16 rounded-full bg-gradient-to-br from-pink-300 to-purple-300 opacity-15 bg-float-2" />
-        <div className="absolute top-[40%] left-[5%] w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-cyan-300 opacity-15 bg-float-3" />
-        <div className="absolute bottom-[30%] right-[10%] w-16 h-16 opacity-15 bg-float-1" style={{ animationDelay: '-3s' }}>
-          <svg viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2L2 22h20L12 2z"/></svg>
-        </div>
-        <div className="absolute top-[25%] left-[70%] w-14 h-14 rounded-full bg-gradient-to-br from-red-400 to-orange-400 opacity-15 bg-float-2" style={{ animationDelay: '-5s' }} />
-        <div className="absolute top-[70%] right-[30%] w-10 h-10 text-purple-400 opacity-15 bg-float-3" style={{ animationDelay: '-2s' }}>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        <div className="absolute top-[30%] -left-24 w-72 h-72 rounded-full opacity-[0.04]" style={{ backgroundColor: brand.burgundy }} />
+        <div className="absolute bottom-[15%] -right-24 w-80 h-80 rounded-full opacity-[0.05]" style={{ backgroundColor: brand.gold }} />
+      </div>
+
+      {/* Top utility bar */}
+      <div className="relative z-50 text-white text-sm" style={{ backgroundColor: brand.burgundyDark }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <span className="hidden sm:flex items-center gap-2">
+              <LuPhone className="w-3.5 h-3.5" style={{ color: brand.gold }} />
+              0708 800 008 / 0760 063 577
+            </span>
+            <span className="flex items-center gap-2">
+              <LuMail className="w-3.5 h-3.5" style={{ color: brand.gold }} />
+              gombejuniorschool@gmail.com
+            </span>
+          </div>
+          <span className="hidden md:flex items-center gap-2">
+            <LuMapPin className="w-3.5 h-3.5" style={{ color: brand.gold }} />
+            Gulu Town, Uganda
+          </span>
         </div>
       </div>
-      {/* Custom Header/Navbar */}
-      <header className="sticky top-0 z-50 bg-white shadow-md overflow-visible">
 
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-visible">
-          <div className="flex items-center justify-between h-20">
-            {/* Brand Name with playful animation */}
-            <motion.div 
-              className="flex items-center"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
-            >
-              <h1 className="text-2xl font-bold" style={{ color: brandColors.secondary }}>
-                Gombe Junior School - <span style={{ color: brandColors.primary }}>Gulu</span>
-              </h1>
-            </motion.div>
+      {/* Header / Navbar */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[72px]">
+            {/* Brand */}
+            <Link to="/" className="flex items-center gap-3 min-w-0">
+              <img
+                src="/Gombe Junior School logo.png"
+                alt="Gombe Junior School"
+                className="h-12 w-auto flex-shrink-0"
+              />
+              <div className="leading-tight min-w-0">
+                <p className="text-lg font-bold truncate" style={{ color: brand.burgundy }}>
+                  Gombe Junior School
+                </p>
+                <p className="text-xs font-medium tracking-wide uppercase" style={{ color: brand.gold }}>
+                  Gulu Campus &middot; Gulu City
+                </p>
+              </div>
+            </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) =>
                 item.dropdown ? (
                   <div
@@ -205,18 +220,16 @@ const GJSGulu = () => {
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button
-                      className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-[#800E13] font-medium transition-colors"
-                    >
+                    <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#800E13] transition-colors">
                       {item.label}
                       <LuChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
                     {activeDropdown === item.label && (
                       /* pt-2 creates a seamless hover bridge between button and panel */
-                      <div className="absolute top-full left-0 pt-2 min-w-[220px] z-[100]">
+                      <div className="absolute top-full left-0 pt-2 min-w-[230px] z-[100]">
                         <motion.div
-                          className="bg-white rounded-xl shadow-2xl py-3 border-2 border-[#FFD700]"
-                          initial={{ opacity: 0, y: -6 }}
+                          className="bg-white rounded-lg shadow-lg py-2 border border-gray-200"
+                          initial={{ opacity: 0, y: -4 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.15 }}
                         >
@@ -225,7 +238,7 @@ const GJSGulu = () => {
                               <Link
                                 key={sub.route}
                                 to={sub.route}
-                                className="block px-4 py-2.5 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] transition-colors rounded-lg mx-2 text-sm"
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#800E13] transition-colors"
                               >
                                 {sub.label}
                               </Link>
@@ -233,7 +246,7 @@ const GJSGulu = () => {
                               <a
                                 key={sub.href}
                                 href={sub.href}
-                                className="block px-4 py-2.5 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] transition-colors rounded-lg mx-2 text-sm"
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#800E13] transition-colors"
                               >
                                 {sub.label}
                               </a>
@@ -244,23 +257,33 @@ const GJSGulu = () => {
                     )}
                   </div>
                 ) : (
-                  <motion.a
+                  <a
                     key={item.label}
                     href={item.href}
-                    className="relative px-3 py-2 text-gray-700 hover:text-[#800E13] font-medium transition-all duration-300 group"
-                    whileHover={{ y: -2 }}
+                    className="relative px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#800E13] transition-colors group"
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-3 w-0 h-0.5 bg-[#FFD700] group-hover:w-[calc(100%-24px)] transition-all duration-300"></span>
-                  </motion.a>
+                    <span
+                      className="absolute bottom-0 left-3 w-0 h-0.5 group-hover:w-[calc(100%-24px)] transition-all duration-300"
+                      style={{ backgroundColor: brand.gold }}
+                    ></span>
+                  </a>
                 )
               )}
+              <Link
+                to="/admissions/apply"
+                className="ml-3 px-5 py-2.5 rounded-md text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: brand.burgundy }}
+              >
+                Apply Now
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <LuX className="w-6 h-6" /> : <LuMenu className="w-6 h-6" />}
             </button>
@@ -279,7 +302,7 @@ const GJSGulu = () => {
                   <div key={item.label} className="py-1">
                     <button
                       onClick={() => setMobileDropdown(mobileDropdown === item.label ? null : item.label)}
-                      className="flex items-center justify-between w-full py-3 px-4 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] font-medium rounded-lg transition-colors"
+                      className="flex items-center justify-between w-full py-3 px-4 text-gray-700 hover:bg-gray-50 hover:text-[#800E13] font-medium rounded-lg transition-colors"
                     >
                       {item.label}
                       <LuChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''}`} />
@@ -292,7 +315,7 @@ const GJSGulu = () => {
                               key={sub.route}
                               to={sub.route}
                               onClick={() => setIsMenuOpen(false)}
-                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-[#FFF9E6] transition-colors"
+                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-gray-50 transition-colors"
                             >
                               {sub.label}
                             </Link>
@@ -301,7 +324,7 @@ const GJSGulu = () => {
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-[#FFF9E6] transition-colors"
+                              className="block py-2 px-4 text-sm text-gray-600 hover:text-[#800E13] rounded-lg hover:bg-gray-50 transition-colors"
                             >
                               {sub.label}
                             </a>
@@ -315,75 +338,105 @@ const GJSGulu = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block py-3 px-4 text-gray-700 hover:bg-[#FFF9E6] hover:text-[#800E13] font-medium rounded-lg transition-colors"
+                    className="block py-3 px-4 text-gray-700 hover:bg-gray-50 hover:text-[#800E13] font-medium rounded-lg transition-colors"
                   >
                     {item.label}
                   </a>
                 )
               )}
+              <Link
+                to="/admissions/apply"
+                onClick={() => setIsMenuOpen(false)}
+                className="block mt-2 mx-4 px-5 py-3 rounded-md text-center text-sm font-semibold text-white"
+                style={{ backgroundColor: brand.burgundy }}
+              >
+                Apply Now
+              </Link>
             </motion.div>
           )}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden text-white py-32" style={{ backgroundColor: brandColors.secondary }}>
+      <section id="home" className="relative overflow-hidden text-white" style={{ backgroundColor: '#141414' }}>
         <div className="absolute inset-0">
           <img
             src={gjsPics[heroImageIndex]}
             alt="Gombe Junior School - Gulu"
-            className="w-full h-full object-cover transition-opacity duration-500"
-            style={{ opacity: heroVisible ? 0.2 : 0 }}
+            className="w-full h-full object-cover transition-opacity duration-700"
+            style={{ opacity: heroVisible ? 0.55 : 0 }}
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               className="max-w-2xl"
             >
-              <div className="inline-flex items-center rounded-full px-6 py-2 mb-6" style={{ backgroundColor: `${brandColors.primary}40` }}>
-                <LuExternalLink className="w-4 h-4 mr-2" style={{ color: brandColors.primary }} />
-                <span className="text-sm font-medium">gjs-gulu.ges.ac.ug</span>
+              <div
+                className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 mb-8 text-xs font-semibold tracking-widest uppercase"
+                style={{ borderColor: `${brand.gold}80`, color: brand.gold }}
+              >
+                Mixed Day &middot; Primary Education
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Gombe Junior School (GJS)
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Gombe Junior School
+                <span className="block mt-2 text-2xl md:text-3xl font-semibold" style={{ color: brand.gold }}>
+                  Gulu Campus
+                </span>
               </h1>
-              <p className="text-xl mb-4" style={{ color: brandColors.primary }}>
-                Gulu Campus (Day)
+              <p className="text-lg text-gray-200 mb-10 max-w-xl">
+                Nurturing confident, well-rounded learners through academic excellence,
+                strong values, and a supportive day-school environment in Gulu City.
               </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/admissions/apply"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: brand.burgundy }}
+                >
+                  Apply for Admission
+                  <LuArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/about/school-profile"
+                  className="inline-flex items-center px-7 py-3.5 rounded-md font-semibold border border-white/40 text-white hover:bg-white/10 transition-colors"
+                >
+                  School Profile
+                </Link>
+              </div>
             </motion.div>
-            
+
             {/* Right side - Logo */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="flex justify-center md:justify-end"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="hidden lg:flex justify-end"
             >
-              <img 
-                src="/Gombe Junior School logo.png" 
-                alt="Gombe Junior School" 
+              <img
+                src="/Gombe Junior School logo.png"
+                alt="Gombe Junior School"
                 loading="lazy"
-                className="w-96 h-96 object-contain"
+                className="w-72 h-72 object-contain drop-shadow-xl"
               />
             </motion.div>
           </div>
         </div>
+        {/* Gold accent line */}
+        <div className="relative h-1" style={{ background: `linear-gradient(90deg, ${brand.gold}, ${brand.burgundy})` }} />
       </section>
 
       {/* Logo Carousel */}
-      <div className="py-8" style={{ backgroundColor: '#FFF9F5' }}>
-        <Marquee
-          gradient
-          gradientColor="#FFF9F5"
-          gradientWidth={96}
-          speed={60}
-          pauseOnHover
-        >
-          {/* 4× repetition ensures content always fills the viewport before the library clones it */}
+      <div className="py-10 bg-gray-50 border-b border-gray-100">
+        <p className="text-center text-xs font-semibold tracking-widest uppercase text-gray-400 mb-6">
+          Affiliations &amp; Partners
+        </p>
+        <Marquee gradient gradientColor="#F9FAFB" gradientWidth={96} speed={50} pauseOnHover>
           {[0, 1, 2, 3].flatMap((setIdx) =>
             carouselLogos.map((logo, i) => (
               <div
@@ -395,7 +448,7 @@ const GJSGulu = () => {
                   alt={logo.alt}
                   width={120}
                   height={80}
-                  className="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                  className="max-h-14 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
                 />
               </div>
             ))
@@ -404,266 +457,188 @@ const GJSGulu = () => {
       </div>
 
       {/* Campus Media Section */}
-      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#FFF9F5' }}>
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 opacity-10 z-0">
-          <svg width="80" height="80" viewBox="0 0 100 100">
-            <path d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z" fill="#FFD700" />
-          </svg>
-        </div>
-        <div className="absolute bottom-10 right-10 opacity-10 z-0">
-          <svg width="100" height="60" viewBox="0 0 100 60">
-            <ellipse cx="30" cy="30" rx="25" ry="15" fill="#FFD700"/>
-            <ellipse cx="70" cy="30" rx="25" ry="15" fill="#FFD700"/>
-            <rect x="10" y="35" width="80" height="20" rx="10" fill="#FFD700"/>
-          </svg>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-20 lg:py-24 bg-white relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="max-w-2xl mb-12">
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: brand.gold }}>
+              Our Campus
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: brand.ink }}>
+              Explore Life at Gulu Campus
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Image Column */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl group"
-              style={{ border: `4px solid ${brandColors.primary}` }}
+              {...fadeUp}
+              className="relative overflow-hidden rounded-lg border border-gray-200 shadow-md group"
             >
               <Link to="/gallery" className="block w-full h-full">
-                <img 
-                  src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_142549.jpg" 
-                  alt="Gombe Junior School Gulu" 
-                  className="w-full h-full object-cover aspect-video transform group-hover:scale-105 transition-transform duration-700"
+                <img
+                  src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Elections/20260619_142549.jpg"
+                  alt="Gombe Junior School Gulu"
+                  className="w-full h-full object-cover aspect-video transform group-hover:scale-[1.03] transition-transform duration-700"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                  <h3 className="text-white font-bold text-xl">Campus Life</h3>
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
+                  <h3 className="text-white font-semibold text-lg">Campus Life</h3>
+                  <p className="text-gray-300 text-sm">View the photo gallery</p>
                 </div>
               </Link>
             </motion.div>
 
             {/* Video Column */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl"
-              style={{ border: `4px solid ${brandColors.secondary}` }}
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative overflow-hidden rounded-lg border border-gray-200 shadow-md"
             >
-              <video 
-                src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Home%20page/Gombe%20Junior%20School%20-%20Gulu%20Virtual%20tour.mp4"  
-                autoPlay 
-                loop 
-                muted 
+              <video
+                src="/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Home%20page/Gombe%20Junior%20School%20-%20Gulu%20Virtual%20tour.mp4"
+                autoPlay
+                loop
+                muted
                 playsInline
                 preload="none"
                 className="w-full h-full object-cover aspect-video"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
-                <h3 className="text-white font-bold text-xl">Virtual Tour</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                <h3 className="text-white font-semibold text-lg">Virtual Tour</h3>
+                <p className="text-gray-300 text-sm">A walk through our campus</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Wavy Divider */}
-      <div className="w-full" style={{ marginTop: '-1px', lineHeight: 0 }}>
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full" style={{ height: '100px', display: 'block' }}>
-          <path d="M0,0 C300,90 600,90 900,0 C1050,50 1150,50 1200,0 L1200,120 L0,120 Z" fill="#F0F9FF"></path>
-        </svg>
-      </div>
-
       {/* Programs Section */}
-      <section className="py-20 relative" style={{ backgroundColor: '#F0F9FF' }}>
-        {/* Decorative Airplane */}
-        <div className="absolute top-20 right-10 opacity-10">
-          <svg width="120" height="80" viewBox="0 0 120 80">
-            <path d="M10,40 L60,20 L110,40 L100,50 L70,45 L50,70 L45,70 L55,45 L30,42 L20,50 L15,48 Z" fill="#800E13" stroke="#800E13" strokeWidth="2"/>
-          </svg>
-        </div>
-        
+      <section className="py-20 lg:py-24 bg-gray-50 relative z-10 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-lg font-semibold mb-2" style={{ color: '#FF6B35' }}>Our Programs</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: brandColors.secondary }}>
-              We meet kids at their level<br/>regardless of their age
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              World-class international education programs
+          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: brand.gold }}>
+              Our Programs
             </p>
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: brand.ink }}>
+              We Offer World-Class Education Programs
+            </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {programs.map((program, index) => {
-              const bgColors = ['#FFE8E8', '#E8F5FF', '#E8FFE8'];
-              const accentColors = ['#FF6B35', '#4FB8FF', '#5FD068'];
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
-                  style={{
-                    borderRadius: '30px',
-                    backgroundColor: bgColors[index % 3]
-                  }}
-                >
-                  <div className="inline-block px-5 py-2 rounded-full text-sm font-bold mb-4" 
-                    style={{ 
-                      backgroundColor: '#fff', 
-                      color: accentColors[index % 3],
-                      boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                    }}>
-                    {program.title}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: brandColors.secondary }}>
-                    {program.title}
-                  </h3>
-                  <p className="text-gray-700 mb-6 leading-relaxed">{program.description}</p>
-                  <ul className="space-y-3">
-                    {program.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start text-gray-700">
-                        <span className="w-6 h-6 rounded-full mr-3 flex items-center justify-center flex-shrink-0" 
-                          style={{ backgroundColor: accentColors[index % 3] }}>
-                          <span className="text-white text-xs">\u2713</span>
-                        </span>
-                        <span className="pt-0.5">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Decorative blob */}
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-20" 
-                    style={{ backgroundColor: accentColors[index % 3] }}></div>
-                </motion.div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {programs.map((program, index) => (
+              <motion.div
+                key={index}
+                {...fadeUp}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 p-8"
+                style={{ borderTop: `3px solid ${index % 2 === 0 ? brand.burgundy : brand.gold}` }}
+              >
+                <h3 className="text-xl font-bold mb-3" style={{ color: brand.burgundy }}>
+                  {program.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
+                <ul className="space-y-3">
+                  {program.features.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-start text-gray-700">
+                      <span
+                        className="w-5 h-5 rounded-full mr-3 flex items-center justify-center flex-shrink-0 mt-0.5"
+                        style={{ backgroundColor: `${brand.burgundy}12` }}
+                      >
+                        <span className="text-xs font-bold" style={{ color: brand.burgundy }}>&#10003;</span>
+                      </span>
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Wavy Divider */}
-      <div className="w-full" style={{ marginTop: '-1px', lineHeight: 0 }}>
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full" style={{ height: '100px', display: 'block' }}>
-          <path d="M0,0 C300,90 600,90 900,0 C1050,50 1150,50 1200,0 L1200,120 L0,120 Z" fill="#ffffff"></path>
-        </svg>
-      </div>
-
-      {/* Contact Section */}
-      <section className="py-20 text-white" style={{ backgroundColor: brandColors.secondary }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Join Our Global Community
-            </h2>
-            <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
-              Experience world-class international education at GJS - Gulu Campus
+      {/* Contact / CTA Section */}
+      <section className="py-20 lg:py-24 text-white relative z-10" style={{ backgroundColor: brand.burgundy }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
+            <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: brand.gold }}>
+              Admissions Open
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
-              <div className="flex items-center space-x-2">
-                <LuMapPin className="w-5 h-5" style={{ color: brandColors.primary }} />
+            <h2 className="text-3xl md:text-4xl font-bold mb-10">
+              Give Your Child a Strong Start with Quality Education at Our Gulu Campus.
+            </h2>
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-10 text-sm text-gray-200">
+              <div className="flex items-center gap-2">
+                <LuMapPin className="w-4 h-4" style={{ color: brand.gold }} />
                 <span>Gulu Town, Uganda</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <LuPhone className="w-5 h-5" style={{ color: brandColors.primary }} />
+              <div className="flex items-center gap-2">
+                <LuPhone className="w-4 h-4" style={{ color: brand.gold }} />
                 <span>0708 800 008 / 0760 063 577</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <LuMail className="w-5 h-5" style={{ color: brandColors.primary }} />
-                <span>info@gjs.ges.ac.ug</span>
+              <div className="flex items-center gap-2">
+                <LuMail className="w-4 h-4" style={{ color: brand.gold }} />
+                <span>gombejuniorschool@gmail.com</span>
               </div>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-4 rounded-full font-bold text-xl transition-all duration-300 shadow-lg"
-              style={{ backgroundColor: brandColors.primary, color: brandColors.secondary }}
+            <Link
+              to="/admissions/apply"
+              className="inline-flex items-center gap-2 px-9 py-3.5 rounded-md font-semibold transition-opacity hover:opacity-90"
+              style={{ backgroundColor: brand.gold, color: brand.burgundyDark }}
             >
               Apply Now
-            </motion.button>
+              <LuArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Custom Footer */}
-      <footer className="bg-[#800E13] text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      {/* Footer */}
+      <footer className="text-white relative z-10" style={{ backgroundColor: brand.burgundyDark }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* About Section */}
-            <div>
-              <div className="flex items-center mb-4">
-                <img 
-                  src="/Gombe Junior School logo.png" 
-                  alt="Gombe Junior School" 
-                  className="h-40 w-auto mr-3 grayscale"
+            <div className="lg:col-span-1">
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src="/Gombe Junior School logo.png"
+                  alt="Gombe Junior School"
+                  className="h-14 w-auto"
                 />
-                <h3 className="text-2xl font-bold" style={{ color: brandColors.primary }}>
-                  GJS - Gulu Campus
+                <h3 className="text-lg font-bold leading-tight" style={{ color: brand.gold }}>
+                  GJS Gulu Campus
                 </h3>
               </div>
-              <p className="text-gray-200 mb-4">
-                Providing world-class international education with a focus on holistic development.
+              <p className="text-sm text-gray-300 leading-relaxed">
+                A centre for holistic education.
               </p>
             </div>
 
             {/* Contact Information */}
             <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: brandColors.primary }}>Contact Us</h4>
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <LuMail className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">info@gjs.ges.ac.ug</span>
+              <h4 className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: brand.gold }}>
+                Contact Us
+              </h4>
+              <div className="space-y-3 text-sm text-gray-300">
+                <div className="flex items-start gap-3">
+                  <LuMail className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: brand.gold }} />
+                  <span>gombejuniorschool@gmail.com</span>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <LuPhone className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <div className="text-gray-200">
-                    <div>Tel: 0708 800 008 / 0760 063 577</div>
-                  </div>
+                <div className="flex items-start gap-3">
+                  <LuPhone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: brand.gold }} />
+                  <span>0708 800 008 / 0760 063 577</span>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <LuMapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-gray-200">Gulu Campus, Gulu Town</span>
+                <div className="flex items-start gap-3">
+                  <LuMapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: brand.gold }} />
+                  <span>Gulu Campus, Gulu City</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: brandColors.primary }}>Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaFacebookF className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaTwitter className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaInstagram className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FFD700] flex items-center justify-center transition-all">
-                  <FaLinkedinIn className="w-5 h-5" />
-                </a>
               </div>
             </div>
 
             {/* Useful Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: brandColors.primary }}>Useful Links</h4>
-              <ul className="space-y-2">
+              <h4 className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: brand.gold }}>
+                Useful Links
+              </h4>
+              <ul className="space-y-2 text-sm">
                 {[
                   { label: 'News', href: '#news' },
                   { label: 'Events', href: '#events' },
@@ -674,7 +649,7 @@ const GJSGulu = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-gray-200 hover:text-[#FFD700] transition-colors duration-300 text-sm"
+                      className="text-gray-300 hover:text-white transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -682,26 +657,70 @@ const GJSGulu = () => {
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* Bottom Bar */}
-          <div className="pt-3">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-300 mb-4 md:mb-0">
-                &copy; {new Date().getFullYear()} Gombe Junior School (GJS). All rights reserved.
-              </p>
-              <div className="flex items-center space-x-2">
-                <span className="text-gray-300 text-sm">Powered by</span>
-                <img 
-                  src="/Inzozi-grayscale.png" 
-                  alt="Inzozi Logo" 
-                  className="h-16 w-auto brightness-0 invert" 
-                />
+            {/* Social Media */}
+            <div>
+              <h4 className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: brand.gold }}>
+                Follow Us
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                <a href="https://www.facebook.com/share/14pffgQyCPv/2" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Facebook">
+                  <FaFacebookF className="w-4 h-4" />
+                </a>
+                <a href="https://x.com/GombeJuniorSch" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="X (Twitter)">
+                  <FaTwitter className="w-4 h-4" />
+                </a>
+                <a href="https://www.instagram.com/gombejuniorschool?igsh=aDF3ZzBwcnkwYzg0" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Instagram">
+                  <FaInstagram className="w-4 h-4" />
+                </a>
+                <a href="https://youtube.com/@gombejuniorschool5546?si=nx4FVnOLfe0PBXVs" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="YouTube">
+                  <FaYoutube className="w-4 h-4" />
+                </a>
+                <a href="https://www.tiktok.com/@gombejuniorschool?_r=1&_t=ZS-97XNheFCTyx" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="TikTok">
+                  <FaTiktok className="w-4 h-4" />
+                </a>
+                <a href="https://wa.me/256708800003" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="WhatsApp">
+                  <FaWhatsapp className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-xs text-gray-400">
+              &copy; {new Date().getFullYear()} Gombe Junior School (GJS). All rights reserved.
+            </p>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-400">Powered by</span>
+              <img
+                src="/Inzozi-grayscale.png"
+                alt="Inzozi Logo"
+                className="h-8 w-auto brightness-0 invert opacity-70"
+              />
+            </div>
+          </div>
+        </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/256708800003"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-110"
+        style={{ backgroundColor: '#25D366' }}
+      >
+        <FaWhatsapp className="w-7 h-7 text-white" />
+        {/* Pulse ring */}
+        <span
+          className="absolute inset-0 rounded-full animate-ping opacity-30"
+          style={{ backgroundColor: '#25D366' }}
+        />
+      </a>
     </div>
   );
 };

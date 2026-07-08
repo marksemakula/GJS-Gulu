@@ -14,9 +14,9 @@ const navItems = [
     label: 'About Us',
     dropdown: [
       { label: 'School Profile', href: '/about/school-profile' },
-      { label: 'Mission & Vision', href: '/about/mission-vision' },
-      { label: 'Core Values', href: '/about/core-values' },
-      { label: 'Board of Governors', href: '/about/board-of-governors' },
+      { label: 'Mission & Vision', href: '/about/school-profile#mission' },
+      { label: 'Core Values', href: '/about/school-profile#core-values' },
+      { label: 'School Management Committee', href: '/about/management-committee' },
       { label: "Principal's Message", href: '/about/principals-message' },
       { label: 'Administration and Management Team', href: '/about/management-team' },
     ],
@@ -69,7 +69,7 @@ const GJSHeader = () => {
               <div className="text-lg font-bold text-white">Gombe Junior School</div>
               <div className="text-xs font-semibold text-white/80">Gulu Campus — Gulu Town, Uganda</div>
               <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
-                Ssosolye bwatafa
+                Holistic Education
               </div>
             </div>
           </Link>

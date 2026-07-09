@@ -51,7 +51,7 @@ const CampusSelector = () => {
           <img
             src="/Gombe Junior School logo.png"
             alt="Gombe Junior School"
-            className="h-20 w-20 object-contain"
+            className="h-40 w-40 object-contain"
           />
           <h2 id="campus-selector-title" className="text-white text-lg font-bold text-center leading-snug">
             Gombe Junior School

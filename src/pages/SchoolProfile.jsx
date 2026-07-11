@@ -329,8 +329,31 @@ const SchoolProfile = () => {
                       </p>
                     </div>
 
+                    {/* Facility links — each opens the relevant gallery category */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                      {[
+                        { label: 'Classrooms', slug: 'classrooms' },
+                        { label: 'ICT-Enabled Spaces', slug: 'ict-lab' },
+                        { label: 'Offices', slug: 'offices' },
+                        { label: 'Sports & Aerobics', slug: 'aerobics' },
+                        { label: 'Club Spaces', slug: 'clubs' },
+                        { label: 'School Compound', slug: 'campus' },
+                      ].map((item, i) => (
+                        <Link
+                          key={i}
+                          to={`/gallery?category=${item.slug}`}
+                          className="p-4 bg-gray-50 rounded-none border border-gray-100 flex items-center justify-between group hover:border-[#800E13] hover:bg-red-50/40 transition-colors"
+                        >
+                          <span className="text-sm font-semibold text-gray-700 group-hover:text-[#800E13] transition-colors">{item.label}</span>
+                          <span className="text-[#800E13] text-xs font-bold flex items-center gap-1">
+                            View <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+
                     <p className="text-xs text-gray-400 italic">
-                      Full facility figures (classrooms, labs, offices) will be published here as the campus continues to grow.
+                      Further facility photographs will be published as the campus continues to grow.
                     </p>
                   </div>
                 )}

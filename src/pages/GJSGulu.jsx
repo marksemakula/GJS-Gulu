@@ -448,7 +448,7 @@ const GJSGulu = () => {
                   alt={logo.alt}
                   width={120}
                   height={80}
-                  className="max-h-14 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                  className="max-h-14 max-w-full object-contain transition-all duration-300"
                 />
               </div>
             ))

@@ -663,24 +663,24 @@ const GJSGulu = () => {
               <h4 className="text-sm font-semibold tracking-widest uppercase mb-4" style={{ color: brand.gold }}>
                 Follow Us
               </h4>
-              <div className="flex flex-wrap gap-3">
-                <a href="https://www.facebook.com/share/14pffgQyCPv/2" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Facebook">
-                  <FaFacebookF className="w-4 h-4" />
+              <div className="flex flex-wrap gap-5 items-center">
+                <a href="https://www.facebook.com/share/14pffgQyCPv/2" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="Facebook">
+                  <FaFacebookF className="w-5 h-5" />
                 </a>
-                <a href="https://x.com/GombeJuniorSch" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="X (Twitter)">
-                  <FaTwitter className="w-4 h-4" />
+                <a href="https://x.com/GombeJuniorSch" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="X (Twitter)">
+                  <FaTwitter className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/gombejuniorschool?igsh=aDF3ZzBwcnkwYzg0" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Instagram">
-                  <FaInstagram className="w-4 h-4" />
+                <a href="https://www.instagram.com/gombejuniorschool?igsh=aDF3ZzBwcnkwYzg0" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="Instagram">
+                  <FaInstagram className="w-5 h-5" />
                 </a>
-                <a href="https://youtube.com/@gombejuniorschool5546?si=nx4FVnOLfe0PBXVs" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="YouTube">
-                  <FaYoutube className="w-4 h-4" />
+                <a href="https://youtube.com/@gombejuniorschool5546?si=nx4FVnOLfe0PBXVs" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="YouTube">
+                  <FaYoutube className="w-5 h-5" />
                 </a>
-                <a href="https://www.tiktok.com/@gombejuniorschool?_r=1&_t=ZS-97XNheFCTyx" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="TikTok">
-                  <FaTiktok className="w-4 h-4" />
+                <a href="https://www.tiktok.com/@gombejuniorschool?_r=1&_t=ZS-97XNheFCTyx" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="TikTok">
+                  <FaTiktok className="w-5 h-5" />
                 </a>
-                <a href="https://wa.me/256708800003" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="WhatsApp">
-                  <FaWhatsapp className="w-4 h-4" />
+                <a href="https://wa.me/256708800003" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="WhatsApp">
+                  <FaWhatsapp className="w-5 h-5" />
                 </a>
               </div>
             </div>

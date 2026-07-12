@@ -49,17 +49,33 @@ const SchoolProfile = () => {
   ];
 
   const clubs = [
-    'Chess Club', 'Piano Club', 'Scouts Club', 'Soccer Academy',
+    'Chess Club',
+    'Robotics Club',
+    'Scouts Club',
+    'Piano Club',
+    'Jazz Band Club',
+    'Violin Club',
+    'Guitar Club',
+    'Happy Kids Club',
+    'MDD Club',
+    'Food and Nutrition Club',
+    'Soccer Academy',
+    'Art and Crafts Club',
+    'Netball Club',
+    'Volleyball Club',
+    'Board Games Club',
     'Dance Group (Happy Kids)'
   ];
 
   const sisterSchools = [
-    { name: 'Gombe Institute of Business, Science & Technology', loc: 'Kabalagala - Muzaana Zone, Kampala' },
-    { name: 'Gombe Junior School - Kikajjo', loc: 'Kikajjo, Kampala' },
-    { name: 'Scooby-Doo International School Uganda (SISU) - Katale', loc: 'Along Sseguku - Katale Rd' },
-    { name: 'Scooby-Doo International School Uganda (SISU) - Gulu', loc: 'Gulu City (Same Location)' },
-    { name: 'St. Andrew Kaggwa Gombe High School - Bujuuko', loc: 'Kampala - Mityana Road' },
-    { name: 'St. Andrew Kaggwa Gombe High School - Kawaala', loc: 'Kampala - Hoima Road' }
+    { name: 'St. Andrew Kaggwa Gombe High School - Kawaala', loc: 'Kampala - Hoima Road', url: 'http://www.kawaala.gombehighschool.ac.ug/' },
+    { name: 'St. Andrew Kaggwa Gombe High School - Bujuuko', loc: 'Kampala - Mityana Road', url: 'http://www.bujuuko.gombehighschool.ac.ug/' },
+    { name: 'Gombe Junior School - Kikajjo', loc: 'Kikajjo, Kampala', url: 'https://www.kikajjo.gombejuniorschool.ac.ug' },
+    { name: 'Gombe Junior School - Gulu', loc: 'Gulu City', url: 'https://www.gulu.gombejuniorschool.ac.ug' },
+    { name: 'ScoobyDoo International School Uganda - Katale', loc: 'Along Sseguku - Katale Rd', url: 'https://www.katale.scoobydoointernational.ac.ug' },
+    { name: 'ScoobyDoo International School Uganda - Gulu', loc: 'Gulu City (Same Location)', url: 'https://www.gulu.scoobydoointernational.ac.ug' },
+    { name: 'Gombe Institute of Science & Technology', loc: 'Kabalagala - Muzaana Zone, Kampala', url: 'http://gibst.ac.ug' },
+    { name: 'International Education Pathway Program', loc: 'Gombe Education Service', url: 'https://www.ipp.ges.ac.ug' }
   ];
 
   return (
@@ -188,16 +204,23 @@ const SchoolProfile = () => {
 
                     {/* Motto Story Card */}
                     <div className="relative overflow-hidden bg-gradient-to-br from-[#FFF7E6] to-[#FFF1D8] p-6 rounded-none border-2 border-yellow-300">
-                      <div className="absolute top-4 right-4 opacity-10">
-                        <LuCompass className="w-24 h-24 text-yellow-600" />
+                      <div className="absolute inset-y-0 right-0 hidden sm:flex items-center justify-center pr-4">
+                        <img
+                          src="/Ssosolye%20or%20Red-chested%20Cuckoo%20(Cuculus%20solitarius).png"
+                          alt="Ssosolye Red-chested Cuckoo"
+                          className="w-28 h-28 object-contain opacity-20 pointer-events-none"
+                        />
                       </div>
-                      <h4 className="text-xl font-bold text-[#800E13] mb-3 flex items-center gap-2">
+                      <h4 className="text-xl font-bold text-[#800E13] mb-3 flex items-center gap-2 pr-24">
                         <LuCompass className="w-5 h-5 text-yellow-500" />
-                        Our Motto: &ldquo;Holistic Education&rdquo;
+                        Our Motto: &ldquo;Ssosolye Bwatafa&rdquo;
                       </h4>
-                      <p className="text-gray-700 text-sm leading-relaxed">
-                        The school was founded on a strong aspiration to deliver holistic education to learners at affordable fees &mdash; nurturing children who can face life with a positive attitude and be role models in society.
-                      </p>
+                      <div className="text-gray-700 text-sm leading-relaxed space-y-2 pr-24">
+                        <p>Literally showing that we can achieve success through perseverance.</p>
+                        <p>
+                          &ldquo;Ssosolye&rdquo; is a Kiganda name for a bird that eats ripe bananas but continues pecking unripe ones until it falls on a ripe one after a while (the Red-Chested Cuckoo). Through its perseverance, it gets the ripe banana. The message is that through toiling we can achieve success.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Quick Specs */}
@@ -392,10 +415,14 @@ const SchoolProfile = () => {
                         <h5 className="font-bold text-[#800E13] mb-3 pb-2 border-b border-gray-100">Student Clubs</h5>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-600">
                           {clubs.map((club, idx) => (
-                            <span key={idx} className="flex items-center gap-1.5">
+                            <Link
+                              key={idx}
+                              to="/gallery?category=clubs"
+                              className="flex items-center gap-1.5 hover:text-[#800E13] transition-colors"
+                            >
                               <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
                               {club}
-                            </span>
+                            </Link>
                           ))}
                         </div>
                       </div>
@@ -450,14 +477,23 @@ const SchoolProfile = () => {
                     </div>
 
                     {/* Spiritual development */}
-                    <div className="bg-[#FFF9F5] p-5 rounded-none border border-[#F5E6DA] space-y-2 border-t border-gray-100 pt-6">
+                    <div className="bg-[#FFF9F5] p-5 rounded-none border border-[#F5E6DA] space-y-3 border-t border-gray-100 pt-6">
                       <h5 className="font-bold text-gray-800 flex items-center gap-2">
                         <LuHeart className="w-4 h-4 text-red-500" />
                         Spiritual Development
                       </h5>
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        &ldquo;Fearing the Lord is the beginning of wisdom&rdquo; &mdash; we celebrate all recognized religions to instil discipline and the proper upbringing of our children during allocated time in the school program.
-                      </p>
+                      <div className="text-xs text-gray-600 leading-relaxed space-y-3">
+                        <p className="font-semibold text-gray-800">A Multi-Religious School</p>
+                        <p>
+                          At Gombe Junior School, we are committed to providing an inclusive learning environment where every child is respected, valued, and supported in both their academic and spiritual journey. We proudly welcome learners from diverse faith backgrounds, including Muslims, Catholics, Anglicans, Pentecostals, and Seventh-day Adventists.
+                        </p>
+                        <p>
+                          We recognize the importance of nurturing each child&apos;s faith by providing opportunities for appropriate religious instruction, worship, and spiritual guidance in accordance with their beliefs. Our learners are encouraged to embrace values such as integrity, respect, compassion, discipline, and service, while appreciating the diversity of others.
+                        </p>
+                        <p>
+                          By fostering a culture of mutual respect, tolerance, and unity, Gombe Junior School prepares children to become academically successful, morally upright, and socially responsible citizens who can thrive in a diverse and interconnected world.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Community partnership */}
@@ -485,15 +521,24 @@ const SchoolProfile = () => {
 
                     <div className="space-y-3">
                       {sisterSchools.map((school, idx) => (
-                        <div key={idx} className="p-4 bg-gray-50 hover:bg-[#FFF9F5] rounded-none border border-gray-100 flex items-center justify-between gap-4 transition-colors">
+                        <a
+                          key={idx}
+                          href={school.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block p-4 bg-gray-50 hover:bg-[#FFF9F5] rounded-none border border-gray-100 flex items-center justify-between gap-4 transition-colors"
+                        >
                           <div>
                             <span className="text-xs font-bold text-gray-400 block">Institution 0{idx+1}</span>
                             <span className="font-bold text-gray-800 text-sm sm:text-base">{school.name}</span>
                           </div>
-                          <span className="text-xs bg-[#800E13]/10 text-[#800E13] font-semibold px-3 py-1.5 rounded-full flex-shrink-0">
-                            {school.loc}
-                          </span>
-                        </div>
+                          <div className="text-right">
+                            <span className="text-xs bg-[#800E13]/10 text-[#800E13] font-semibold px-3 py-1.5 rounded-full flex-shrink-0 block">
+                              {school.loc}
+                            </span>
+                            <span className="text-xs text-[#800E13] font-medium mt-1 inline-block">Visit website →</span>
+                          </div>
+                        </a>
                       ))}
                     </div>
                   </div>

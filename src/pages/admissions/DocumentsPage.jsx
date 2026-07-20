@@ -11,24 +11,17 @@ const brandColors = {
 
 const documents = [
   {
-    title: 'Application Form',
-    file: 'APPLICATION FORM.docx',
-    description: 'The official admission form. Please download, fill out, and return to the school.',
+    title: 'Admission Application Form',
+    file: 'APPLICATION FOR ADMISSION.docx',
+    description: 'The official primary admission application form for Gombe Junior School — Gulu. Please download, fill out, and return to the school.',
     type: 'docx',
     icon: LuFileText,
   },
   {
-    title: 'Gulu School Requirements',
-    file: 'KIKAJJO SCHOOL REQUIREMENTS.pdf',
-    description: 'Detailed list of requirements and fee structure for Gulu campus students.',
-    type: 'pdf',
-    icon: LuFileCheck,
-  },
-  {
-    title: 'Day School Requirements',
-    file: 'DAY SCHOOL REQUIREMENTS.pdf',
-    description: 'Detailed list of requirements and fee structure for day students.',
-    type: 'pdf',
+    title: 'Primary School Requirements 2026',
+    file: 'PRIMARY SCHOOL REQUIREMENTS 2026.docx',
+    description: 'The 2026 requirement sheet with the full fee structure, uniform costs, and personal school requirements for P.1 — P.6.',
+    type: 'docx',
     icon: LuFileCheck,
   }
 ];

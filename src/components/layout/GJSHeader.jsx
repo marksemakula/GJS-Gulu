@@ -17,7 +17,7 @@ const navItems = [
       { label: 'Mission & Vision', href: '/about/school-profile#mission' },
       { label: 'Core Values', href: '/about/school-profile#core-values' },
       { label: 'School Management Committee', href: '/about/management-committee' },
-      { label: "Principal's Message", href: '/about/principals-message' },
+      { label: "Principal's Message", href: '/principal-message' },
       { label: 'Administration and Management Team', href: '/about/management-team' },
     ],
   },
@@ -25,27 +25,24 @@ const navItems = [
     label: 'Academics',
     dropdown: [
       { label: 'Academic Program', href: '/academics/program' },
-      { label: 'Curriculum - Subjects', href: '/academics/curriculum' },
-      { label: 'Departments', href: '/academics/departments' },
-      { label: 'UNED Results - Archives', href: '/academics/uned-results' },
+      { label: 'Staff', href: '/about/management-team' },
+      { label: 'UNEB Results - Archives', href: '/academics/uneb-results' },
     ],
   },
   {
     label: 'Admissions',
     dropdown: [
       { label: 'Apply Now', href: '/admissions/apply' },
-      { label: 'Resources - Fees', href: '/admissions/fees' },
-      { label: 'FAQs', href: '/admissions/faqs' },
+      { label: 'Fees & Requirements', href: '/admissions/fees' },
       { label: 'Documents', href: '/admissions/documents' },
-      { label: 'Overview', href: '/admissions/overview' },
     ],
   },
   {
     label: "Student's Life",
     dropdown: [
-      { label: 'Articles', href: '/student-life/articles' },
-      { label: 'Images', href: '/student-life/images' },
-      { label: 'Student Clubs and Societies', href: '/student-life/clubs' },
+      { label: 'Updates', href: '/gallery' },
+      { label: 'Images', href: '/gallery' },
+      { label: 'Co-curricular', href: '/gallery' },
     ],
   },
 ];
@@ -67,7 +64,7 @@ const GJSHeader = () => {
             <img src="/GombeBadge.png" alt="Gombe Junior School" className="h-12 w-auto" />
             <div className="leading-tight">
               <div className="text-lg font-bold text-white">Gombe Junior School</div>
-              <div className="text-xs font-semibold text-white/80">Gulu Campus — Gulu Town, Uganda</div>
+              <div className="text-xs font-semibold text-white/80">Gulu Campus — Gulu City, Uganda</div>
               <div className="text-xs font-semibold" style={{ color: brandColors.primary }}>
                 Holistic Education
               </div>

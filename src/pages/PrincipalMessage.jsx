@@ -23,10 +23,21 @@ const PrincipalMessage = () => {
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <section className="rounded-none border border-[#F0E4D8] bg-white shadow-[0_40px_120px_rgba(128,14,19,0.06)] p-8 sm:p-12">
-          <div className="mb-8">
-            <p className="inline-flex items-center rounded-full bg-[#FFF1D8] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#B1742F]">
-              A message from the Principal
-            </p>
+          <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="shrink-0">
+              <img
+                src="/GJS-Gulu/CALNONO%20PATRICK%20-%20PRINCIPAL.jpeg"
+                alt="Mr. Calnono Patrick - Principal"
+                className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover object-top shadow-md border-4 border-[#FFD700]"
+              />
+            </div>
+            <div>
+              <p className="inline-flex items-center rounded-full bg-[#FFF1D8] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#B1742F]">
+                A message from the Principal
+              </p>
+              <p className="mt-3 text-lg font-bold text-[#59311B]">Mr. Calnono Patrick</p>
+              <p className="text-sm text-[#6B4A3F]">Principal, Gombe Junior School — Gulu</p>
+            </div>
           </div>
 
           <div className="space-y-6 text-base leading-8 text-[#3D2D25]">

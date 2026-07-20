@@ -9,6 +9,8 @@ import DocumentsPage from './pages/admissions/DocumentsPage';
 import PrincipalMessage from './pages/PrincipalMessage';
 import SchoolProfile from './pages/SchoolProfile';
 import SchoolManagementCommittee from './pages/SchoolManagementCommittee';
+import ManagementTeam from './pages/ManagementTeam';
+import AcademicPrograms from './pages/AcademicPrograms';
 import UNEBResults from './pages/UNEBResults';
 import './App.css';
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/principal-message" element={<PrincipalMessage />} />
         <Route path="/about/school-profile" element={<SchoolProfile />} />
         <Route path="/about/management-committee" element={<SchoolManagementCommittee />} />
+        <Route path="/about/management-team" element={<ManagementTeam />} />
+        <Route path="/academics/program" element={<AcademicPrograms />} />
         <Route path="/admissions/apply" element={<ApplyPage />} />
         <Route path="/admissions/fees" element={<FeesPage />} />
         <Route path="/admissions/documents" element={<DocumentsPage />} />

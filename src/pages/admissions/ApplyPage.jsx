@@ -62,13 +62,13 @@ const ApplyPage = () => {
                   <LuFileText className="w-8 h-8" style={{ color: brandColors.secondary }} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">APPLICATION FORM.docx</h3>
+                  <h3 className="text-xl font-bold text-gray-900">APPLICATION FOR ADMISSION.docx</h3>
                   <p className="text-gray-500 text-sm">Microsoft Word Document</p>
                 </div>
               </div>
               
               <a
-                href="/Resources/APPLICATION FORM.docx"
+                href="/Resources/APPLICATION FOR ADMISSION.docx"
                 download
                 className="flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105 active:scale-95 shadow-md"
                 style={{ backgroundColor: brandColors.secondary }}

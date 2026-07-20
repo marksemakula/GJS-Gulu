@@ -70,6 +70,28 @@ const galleryImages = [
   { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162541.jpg', caption: 'Religious Hour' },
   { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162703.jpg', caption: 'Spiritual Growth' },
   { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162811.jpg', caption: 'Faith & Values' },
+  // Classrooms
+  { src: '/GJS-Gulu/GJS%20Gulu%20class.jpeg', caption: 'A GJS Gulu Class at Work', category: 'classrooms' },
+  // ICT-enabled learning
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.19.jpeg',       caption: 'Tablet-Based Learning',        category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.26d.jpeg',      caption: 'ICT Lesson in Progress',       category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.26ds.jpeg',     caption: 'Young Digital Learners',       category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.29.jpeg',       caption: 'Creative Learning on Tablets', category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.30.jpeg',       caption: 'Hands-On with Technology',     category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.30d.jpeg',      caption: 'Exploring Digital Skills',     category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.32dea.jpeg',    caption: 'Early Years ICT',              category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.34daef.jpeg',   caption: 'Learning Together with ICT',   category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.35.jpeg',       caption: 'Computer Research Skills',     category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.35ddsfg.jpeg',  caption: 'Laptop Practice Session',      category: 'ict-lab' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.35fdfd.jpeg',   caption: 'Collaborative ICT Learning',   category: 'ict-lab' },
+  // Religious hour
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.25.jpeg',       caption: 'Religious Hour Blessings',     category: 'religious' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.26.jpeg',       caption: 'Spiritual Guidance',           category: 'religious' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.33sfew.jpeg',   caption: 'Faith Formation',              category: 'religious' },
+  // School compound
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.50.jpeg',       caption: 'Gulu Campus Grounds',          category: 'campus' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.51.jpeg',       caption: 'School Buildings',             category: 'campus' },
+  { src: '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.51e.jpeg',      caption: 'Our Green Compound',           category: 'campus' },
 ];
 
 /* Derive the category slug from the image's folder path */
@@ -107,7 +129,7 @@ export default function GalleryPage() {
 
   const filteredImages = activeCategory === 'all'
     ? galleryImages
-    : galleryImages.filter(img => categoryFromSrc(img.src) === activeCategory);
+    : galleryImages.filter(img => (img.category || categoryFromSrc(img.src)) === activeCategory);
 
   const selectCategory = (slug) => {
     setLightboxIndex(null);

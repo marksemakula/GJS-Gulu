@@ -36,6 +36,13 @@ const gjsPics = [
   '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162541.jpg',
   '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162703.jpg',
   '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Student%20life/RELIGIOUS%20HOUR/20260602_162811.jpg',
+  // Campus & ICT-enabled learning
+  '/GJS-Gulu/GJS%20Gulu%20class.jpeg',
+  '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.26d.jpeg',
+  '/GJS-Gulu/WhatsApp%20Image%202026-07-13%20at%2014.04.30.jpeg',
+  '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.50.jpeg',
+  '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.51.jpeg',
+  '/GJS-Gulu/WhatsApp%20Image%202026-07-18%20at%2020.22.51e.jpeg',
 ];
 
 // Brand palette — burgundy-led, gold used sparingly as an accent
@@ -72,15 +79,15 @@ const GJSGulu = () => {
         { label: 'Core Values', route: '/about/school-profile#core-values' },
         { label: 'School Management Committee', route: '/about/management-committee' },
         { label: "Principal's Message", href: '#principals-message', route: '/principal-message' },
-        { label: 'Administration and Management Team', href: '#management' },
+        { label: 'Administration and Management Team', route: '/about/management-team' },
       ],
     },
     {
       label: 'Academics',
       dropdown: [
-        { label: 'Academic Program', href: '#academic-program' },
+        { label: 'Academic Program', route: '/academics/program' },
         { label: 'Curriculum - Subjects', href: '#curriculum' },
-        { label: 'Departments', href: '#departments' },
+        { label: 'Staff', route: '/about/management-team' },
         { label: 'UNEB Results Archive', route: '/academics/uneb-results' },
       ],
     },
@@ -88,18 +95,17 @@ const GJSGulu = () => {
       label: 'Admissions',
       dropdown: [
         { label: 'Apply Now', href: '#apply', route: '/admissions/apply' },
-        { label: 'Resources - Fees', href: '#fees', route: '/admissions/fees' },
+        { label: 'Fees & Requirements', href: '#fees', route: '/admissions/fees' },
         { label: 'FAQs', href: '#faqs' },
         { label: 'Documents', href: '#documents', route: '/admissions/documents' },
-        { label: 'Overview', href: '#admissions-overview' },
       ],
     },
     {
       label: "Student's Life",
       dropdown: [
-        { label: 'Articles', href: '#articles' },
+        { label: 'Updates', href: '#articles' },
         { label: 'Images', href: '#gallery', route: '/gallery' },
-        { label: 'Student Clubs and Societies', href: '#clubs' },
+        { label: 'Co-curricular', href: '#clubs' },
       ],
     },
   ];
@@ -679,7 +685,7 @@ const GJSGulu = () => {
                 <a href="https://www.tiktok.com/@gombejuniorschool?_r=1&_t=ZS-97XNheFCTyx" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="TikTok">
                   <FaTiktok className="w-5 h-5" />
                 </a>
-                <a href="https://wa.me/256708800003" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="WhatsApp">
+                <a href="https://wa.me/256760063577" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#C9A227] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-110" aria-label="WhatsApp">
                   <FaWhatsapp className="w-5 h-5" />
                 </a>
               </div>
@@ -707,7 +713,7 @@ const GJSGulu = () => {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/256708800003"
+        href="https://wa.me/256760063577"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

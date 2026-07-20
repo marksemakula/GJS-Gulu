@@ -112,7 +112,7 @@ const GJSFooter = () => {
             <div className="space-y-2 text-gray-300 text-sm">
               <div className="flex items-start gap-2">
                 <LuMapPin className="w-4 h-4 mt-0.5" style={{ color: brandColors.primary }} />
-                <p>Gulu Town, Uganda<br />P.O. Box 71523, Gulu</p>
+                <p>Gulu Town, Uganda<br />P.O. Box 361197, Gulu</p>
               </div>
               <div className="flex items-start gap-2">
                 <LuPhone className="w-4 h-4 mt-0.5" style={{ color: brandColors.primary }} />

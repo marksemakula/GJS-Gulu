@@ -21,7 +21,7 @@ const managementTeam = [
   {
     name: 'Mr. Calnono Patrick',
     role: 'Principal',
-    image: '/GJS-Gulu/CALNONO%20PATRICK%20-%20PRINCIPAL.jpeg',
+    image: '/GJS-Gulu/CALNONO%20PATRICK%20-%20PRINCIPAL.png',
     bio: "Mr. Calnono Patrick serves as the Principal of Gombe Junior School — Gulu, providing overall academic and administrative leadership. With a steadfast commitment to academic excellence and holistic education, he steers the campus's strategic direction and ensures high-quality education for every learner.",
     badge: 'Principal',
     objectPosition: 'center 20%',
@@ -29,7 +29,7 @@ const managementTeam = [
   {
     name: 'Mr. Sebyala Jenkins',
     role: 'Assistant Bursar',
-    image: '/GJS-Gulu/SEBYALA%20JENKINS%20-%20ASSISTANT%20BURSAR.jpeg',
+    image: '/GJS-Gulu/SEBYALA%20JENKINS%20-%20ASSISTANT%20BURSAR.png',
     bio: 'Mr. Sebyala Jenkins serves as the Assistant Bursar of Gombe Junior School — Gulu. He manages the day-to-day financial operations of the campus, supporting parents with fees matters and ensuring transparent and efficient handling of school finances.',
     badge: 'Assistant Bursar',
     objectPosition: 'center 20%',
@@ -37,7 +37,7 @@ const managementTeam = [
   {
     name: 'Mr. Okello Tabu Joseph',
     role: 'ICT Manager',
-    image: '/GJS-Gulu/OKELLO%20TABU%20JOSEPH%20-%20ICT%20MANAGER.jpeg',
+    image: '/GJS-Gulu/OKELLO%20TABU%20JOSEPH%20-%20ICT%20MANAGER.png',
     bio: 'Mr. Okello Tabu Joseph leads the ICT department at Gombe Junior School — Gulu. He drives the integration of technology into teaching and learning, equipping our learners with digital skills and global awareness through hands-on computer lessons and research.',
     badge: 'ICT Manager',
     objectPosition: 'center 20%',
@@ -45,7 +45,7 @@ const managementTeam = [
   {
     name: 'Mr. Olweny David Dee',
     role: 'Marketing Manager',
-    image: '/GJS-Gulu/OLWENY%20DAVID%20DEE%20-%20MARKETING%20MANAGER.jpeg',
+    image: '/GJS-Gulu/OLWENY%20DAVID%20DEE%20-%20MARKETING%20MANAGER.png',
     bio: "Mr. Olweny David Dee heads marketing and outreach for Gombe Junior School — Gulu. He champions the school's brand presence in the Northern region, ensuring the Gulu Campus remains a top-choice institution for families seeking quality holistic education.",
     badge: 'Marketing Manager',
     objectPosition: 'center 20%',

@@ -134,7 +134,7 @@ const GJSFooter = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-6 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
-          <span>© 2025 Gombe Junior School. All rights reserved.</span>
+          <span>© 2025 Gombe Junior School. All rights reserved. A member of <a href="https://ges.ac.ug" target="_blank" rel="noopener" className="hover:underline">Gombe Education Service</a>.</span>
           <div className="flex items-center gap-6 mt-3 md:mt-0">
             <Link to="/privacy" className="hover:text-[#FFD700] transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-[#FFD700] transition-colors">Terms</Link>

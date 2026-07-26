@@ -354,7 +354,7 @@ const ManagementTeam = () => {
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
             <p className="text-xs text-gray-400">
-              &copy; {new Date().getFullYear()} Gombe Junior School (GJS). All rights reserved.
+              &copy; {new Date().getFullYear()} Gombe Junior School (GJS). All rights reserved. A member of <a href="https://ges.ac.ug" target="_blank" rel="noopener" className="hover:underline">Gombe Education Service</a>.
             </p>
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-400">Powered by</span>

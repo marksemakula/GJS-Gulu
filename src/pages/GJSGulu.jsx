@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MarqueeLib from 'react-fast-marquee';
 const Marquee = MarqueeLib.default || MarqueeLib;
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { LuMapPin, LuPhone, LuMail, LuMenu, LuX, LuChevronDown, LuArrowRight } from 'react-icons/lu';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
@@ -68,6 +68,26 @@ const GJSGulu = () => {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [heroImageIndex, setHeroImageIndex] = useState(() => Math.floor(Math.random() * gjsPics.length));
   const [heroVisible, setHeroVisible] = useState(true);
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '', phone: '', email: '', program: '', documents: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'documents') {
+      setFormData((p) => ({ ...p, documents: e.target.files?.[0] ?? null }));
+    } else {
+      setFormData((p) => ({ ...p, [name]: value }));
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Application received!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
+    setFormData({ name: '', phone: '', email: '', program: '', documents: null });
+    setIsApplyOpen(false);
+  };
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -276,13 +296,14 @@ const GJSGulu = () => {
                   </a>
                 )
               )}
-              <Link
-                to="/admissions/apply"
-                className="ml-3 px-5 py-2.5 rounded-md text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              <button
+                type="button"
+                onClick={() => setIsApplyOpen(true)}
+                className="ml-3 px-6 py-2 rounded-full text-sm font-semibold text-white transition-all shadow-lg hover:shadow-xl hover:opacity-90"
                 style={{ backgroundColor: brand.burgundy }}
               >
                 Apply Now
-              </Link>
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -350,14 +371,14 @@ const GJSGulu = () => {
                   </a>
                 )
               )}
-              <Link
-                to="/admissions/apply"
-                onClick={() => setIsMenuOpen(false)}
-                className="block mt-2 mx-4 px-5 py-3 rounded-md text-center text-sm font-semibold text-white"
-                style={{ backgroundColor: brand.burgundy }}
+              <button
+                type="button"
+                onClick={() => { setIsApplyOpen(true); setIsMenuOpen(false); }}
+                className="block w-full mt-2 mx-4 py-2.5 rounded-full text-center text-sm font-bold transition-colors"
+                style={{ backgroundColor: brand.goldBright, color: brand.burgundy, width: 'calc(100% - 2rem)' }}
               >
                 Apply Now
-              </Link>
+              </button>
             </motion.div>
           )}
         </div>
@@ -727,6 +748,66 @@ const GJSGulu = () => {
           style={{ backgroundColor: '#25D366' }}
         />
       </a>
+
+      {/* Apply Now Modal */}
+      <AnimatePresence>
+        {isApplyOpen && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setIsApplyOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[200] p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 max-h-[90vh] overflow-y-auto"
+            >
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Apply Now</h2>
+                  <p className="text-sm text-gray-500 mt-1">Gombe Junior School – Gulu Campus</p>
+                </div>
+                <button onClick={() => setIsApplyOpen(false)} className="text-gray-400 hover:text-gray-700 text-2xl font-light leading-none">×</button>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your full name"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm" style={{ '--tw-ring-color': brand.burgundy }} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+256 7XX XXX XXX"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm" style={{ '--tw-ring-color': brand.burgundy }} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="name@email.com"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm" style={{ '--tw-ring-color': brand.burgundy }} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Program of Interest</label>
+                  <select name="program" value={formData.program} onChange={handleChange} required
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm bg-white" style={{ '--tw-ring-color': brand.burgundy }}>
+                    <option value="">Select a program</option>
+                    {programs.map((p) => <option key={p.title} value={p.title}>{p.title}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Academic Documents</label>
+                  <input type="file" name="documents" onChange={handleChange} accept=".pdf,.doc,.docx,.jpg,.png"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl outline-none transition text-sm" />
+                  <p className="text-xs text-gray-400 mt-1">Latest results slip (PDF or image, max 4 MB)</p>
+                </div>
+                <div className="flex gap-3 pt-2">
+                  <button type="submit" className="flex-1 text-white py-3 rounded-xl font-semibold transition text-sm hover:opacity-90" style={{ backgroundColor: brand.burgundy }}>Submit Application</button>
+                  <button type="button" onClick={() => setIsApplyOpen(false)} className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition text-sm">Cancel</button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

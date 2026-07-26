@@ -70,13 +70,22 @@ const GJSGulu = () => {
   const [heroVisible, setHeroVisible] = useState(true);
   const [isApplyOpen, setIsApplyOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '', phone: '', email: '', program: '', documents: null,
+    learnerName: '', name: '', phone: '', email: '', program: '', documents: null,
   });
+
+  const MAX_ATTACHMENT_BYTES = 50 * 1024; // 50KB email attachment limit
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'documents') {
-      setFormData((p) => ({ ...p, documents: e.target.files?.[0] ?? null }));
+      const file = e.target.files?.[0] ?? null;
+      if (file && file.size > MAX_ATTACHMENT_BYTES) {
+        alert('That file is too large to email. Please attach a document smaller than 50KB.');
+        e.target.value = '';
+        setFormData((p) => ({ ...p, documents: null }));
+        return;
+      }
+      setFormData((p) => ({ ...p, documents: file }));
     } else {
       setFormData((p) => ({ ...p, [name]: value }));
     }
@@ -84,8 +93,8 @@ const GJSGulu = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Application received!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
-    setFormData({ name: '', phone: '', email: '', program: '', documents: null });
+    alert(`Application received!\n\nLearner's Name: ${formData.learnerName}\nGuardian's/Sponsor's Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nProgram: ${formData.program}\n\nWe will contact you within 2 working days.`);
+    setFormData({ learnerName: '', name: '', phone: '', email: '', program: '', documents: null });
     setIsApplyOpen(false);
   };
 
@@ -771,8 +780,13 @@ const GJSGulu = () => {
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Your full name"
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Learner's Full Name</label>
+                  <input type="text" name="learnerName" value={formData.learnerName} onChange={handleChange} required placeholder="Learner's full name"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm" style={{ '--tw-ring-color': brand.burgundy }} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Guardian's / Sponsor's Full Name</label>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Guardian's / Sponsor's full name"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 outline-none transition text-sm" style={{ '--tw-ring-color': brand.burgundy }} />
                 </div>
                 <div>
@@ -797,7 +811,7 @@ const GJSGulu = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Academic Documents</label>
                   <input type="file" name="documents" onChange={handleChange} accept=".pdf,.doc,.docx,.jpg,.png"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-xl outline-none transition text-sm" />
-                  <p className="text-xs text-gray-400 mt-1">Latest results slip (PDF or image, max 4 MB)</p>
+                  <p className="text-xs text-gray-400 mt-1">Latest results slip (PDF or image, max 50KB)</p>
                 </div>
                 <div className="flex gap-3 pt-2">
                   <button type="submit" className="flex-1 text-white py-3 rounded-xl font-semibold transition text-sm hover:opacity-90" style={{ backgroundColor: brand.burgundy }}>Submit Application</button>

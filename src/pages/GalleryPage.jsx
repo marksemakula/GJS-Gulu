@@ -27,11 +27,11 @@ const galleryCategories = [
 
 const galleryImages = [
   // Academics - Classes
-  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115155.jpg', caption: 'Classroom Session' },
-  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115602.jpg', caption: 'Learning in Action' },
-  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115727.jpg', caption: 'Academic Excellence' },
-  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_120102.jpg', caption: 'Students in Class' },
-  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_121413.jpg', caption: 'Interactive Learning' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115155.png', caption: 'Classroom Session' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115602.png', caption: 'Learning in Action' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_115727.png', caption: 'Academic Excellence' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_120102.png', caption: 'Students in Class' },
+  { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/Academics/Classes/20260629_121413.png', caption: 'Interactive Learning' },
   // School Activities - Aerobics
   { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162350.jpg', caption: 'Aerobics Session' },
   { src: '/GOMBE%20JUNIOR%20SCHOOL%20-%20GULU/School%20Activities/Aerobics/20260617_162423.jpg', caption: 'Fitness Activities' },

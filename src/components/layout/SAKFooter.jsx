@@ -36,7 +36,7 @@ const SAKFooter = React.memo(() => {
             </p>
             <div className="flex space-x-3 text-white">
               {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map((Icon, idx) => (
-                <motion.a key={idx} whileHover={{ scale: 1.1 }} href="#" className="hover:text-[#FFD700] transition-colors duration-300">
+                <motion.a key={idx} whileHover={{ scale: 1.1 }} href="#" onClick={(e) => e.preventDefault()} className="hover:text-[#FFD700] transition-colors duration-300">
                   <Icon size={18} />
                 </motion.a>
               ))}

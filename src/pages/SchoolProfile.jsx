@@ -204,21 +204,14 @@ const SchoolProfile = () => {
 
                     {/* Motto Story Card */}
                     <div className="relative overflow-hidden bg-gradient-to-br from-[#FFF7E6] to-[#FFF1D8] p-6 rounded-none border-2 border-yellow-300">
-                      <div className="absolute inset-y-0 right-0 hidden sm:flex items-center justify-center pr-4">
-                        <img
-                          src="/Ssosolye%20or%20Red-chested%20Cuckoo%20(Cuculus%20solitarius).png"
-                          alt="Ssosolye Red-chested Cuckoo"
-                          className="w-28 h-28 object-contain opacity-20 pointer-events-none"
-                        />
-                      </div>
-                      <h4 className="text-xl font-bold text-[#800E13] mb-3 flex items-center gap-2 pr-24">
+                      <h4 className="text-xl font-bold text-[#800E13] mb-3 flex items-center gap-2">
                         <LuCompass className="w-5 h-5 text-yellow-500" />
-                        Our Motto: &ldquo;Ssosolye Bwatafa&rdquo;
+                        Our Motto: &ldquo;Holistic Education&rdquo;
                       </h4>
-                      <div className="text-gray-700 text-sm leading-relaxed space-y-2 pr-24">
-                        <p>Literally showing that we can achieve success through perseverance.</p>
+                      <div className="text-gray-700 text-sm leading-relaxed space-y-2">
+                        <p>Nurturing the whole child, mind, body, and character, not just academic performance.</p>
                         <p>
-                          &ldquo;Ssosolye&rdquo; is a Kiganda name for a bird that eats ripe bananas but continues pecking unripe ones until it falls on a ripe one after a while (the Red-Chested Cuckoo). Through its perseverance, it gets the ripe banana. The message is that through toiling we can achieve success.
+                          We believe true education goes beyond the classroom, shaping learners who are intellectually sound, socially responsible, and equipped with life skills for the future. Through a balanced focus on academics, talents, values, and wellbeing, we prepare every child to grow into a well-rounded, confident individual.
                         </p>
                       </div>
                     </div>
